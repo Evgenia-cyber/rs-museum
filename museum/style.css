@@ -3,12 +3,10 @@
   --dark-red: #710707;
   --font-gold: #9d8665;
   --white: #ffffff;
+  --black: #000000;
 
-  /* --font-family-main: 'Roboto', sans-serif;
-  --font-family-accent: 'Forum', cursive; */
-
-  --font-family-main: sans-serif;
-  --font-family-accent: cursive;
+  --font-family-main: 'Roboto', sans-serif;
+  --font-family-accent: 'Forum', cursive;
 
   --font-size-1: 80px;
   --line-height-1: 90px;
@@ -33,12 +31,22 @@
   --line-height-5: 21px;
 
   --padding: 75px;
+  --padding-2: 25px;
+
+  --border-radius: 10px;
 
   --transition-duration: 0.3s;
 }
 
-body {
+* {
   margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   font-family: var(--font-family-main);
   font-size: var(--font-size-4);
   font-weight: var(--font-weight-4);
@@ -52,7 +60,7 @@ h3 {
   font-family: var(--font-family-accent);
 }
 
-ul {
+li {
   list-style: none;
 }
 
@@ -62,6 +70,7 @@ a {
 
 .dark-bg {
   background-color: var(--bg-dark);
+  color: var(--white);
 }
 
 .container {
@@ -85,7 +94,6 @@ a {
   line-height: 50px;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--white);
   background: url('assets/svg/logo.svg') no-repeat left top 8px;
   transition: all var(--transition-duration);
 }
@@ -103,8 +111,8 @@ a {
 .menu-item {
   padding-right: var(--padding);
 }
-.menu-item:last-child{
-   padding-right: 0;
+.menu-item:last-child {
+  padding-right: 0;
 }
 
 .menu-link {
@@ -115,4 +123,42 @@ a {
 .menu-link:hover,
 .menu-link:active {
   color: var(--font-gold);
+}
+
+.welcome-section {
+  height: 750px;
+  background-image: url('assets/img/background.jpg');
+  background-repeat: no-repeat;
+  background-position: calc(50% + 350px) calc(100%);
+}
+
+.section-title {
+  font-size: var(--font-size-1);
+  line-height: var(--line-height-1);
+  letter-spacing: var(--letter-spacing-1);
+  text-transform: uppercase;
+  padding-bottom: var(--padding-2);
+}
+
+.welcome-title {
+  padding-top: 40px;
+}
+
+.section-subtitle {
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-3);
+  line-height: var(--line-height-3);
+  letter-spacing: var(--letter-spacing-3);
+  padding-bottom: var(--padding);
+}
+
+.welcome-btn {
+  padding: var(--padding-2) 70px;
+  color: var(--white);
+  background-color: var(--dark-red);
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-duration);
+}
+.welcome-btn:hover {
+  background-color: var(--font-gold);
 }
