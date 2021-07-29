@@ -159,6 +159,82 @@ a {
   border-radius: var(--border-radius);
   transition: background-color var(--transition-duration);
 }
+
 .welcome-btn:hover {
   background-color: var(--font-gold);
+}
+
+.gold-title {
+  color: var(--font-gold);
+}
+
+.underlined-title {
+  position: relative;
+}
+
+.underlined-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--dark-red);
+}
+
+.cards {
+  display: flex;
+  column-gap: 60px;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: block;
+  margin-top: var(--padding);
+  color: var(--black);
+  transition: all var(--transition-duration);
+}
+
+.card:hover {
+  color: var(--font-gold);
+}
+
+.card:hover img {
+  box-sizing: border-box;
+  border: 1px solid var(--font-gold);
+  transition: border var(--transition-duration);
+}
+
+.card:hover .card-title::after {
+  background-color: var(--font-gold);
+  transition: background-color var(--transition-duration);
+}
+
+.card-title {
+  padding-top: 10px;
+  font-size: var(--font-size-2);
+  line-height: var(--line-height-2);
+  letter-spacing: var(--letter-spacing-2);
+  text-transform: uppercase;
+  position: relative;
+}
+
+.card-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 70%;
+  height: 3px;
+  background-color: var(--dark-red);
+}
+
+.card-virtual {
+  padding-top: 10px;
+}
+
+.card-panorama {
+  font-size: var(--font-size-5);
+  font-weight: var(--font-weight-5);
+  line-height: var(--line-height-5);
 }
