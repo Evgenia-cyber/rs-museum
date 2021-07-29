@@ -1,5 +1,118 @@
-.container{
-   max-width: 1440px;
-   width: calc(100% - 40px);
-   margin: 0 auto;
+:root {
+  --bg-dark: #030303;
+  --dark-red: #710707;
+  --font-gold: #9d8665;
+  --white: #ffffff;
+
+  /* --font-family-main: 'Roboto', sans-serif;
+  --font-family-accent: 'Forum', cursive; */
+
+  --font-family-main: sans-serif;
+  --font-family-accent: cursive;
+
+  --font-size-1: 80px;
+  --line-height-1: 90px;
+  --letter-spacing-1: 5px;
+
+  --font-size-2: 32px;
+  --line-height-2: 35px;
+  --letter-spacing-2: 5px;
+
+  --font-size-3: 28px;
+  --font-weight-3: 300;
+  --line-height-3: 33px;
+  --letter-spacing-3: 2px;
+
+  --font-size-4: 22px;
+  --font-weight-4: 100;
+  --line-height-4: 50px;
+  --letter-spacing-4: 2px;
+
+  --font-size-5: 18px;
+  --font-weight-5: 100;
+  --line-height-5: 21px;
+
+  --padding: 75px;
+
+  --transition-duration: 0.3s;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-4);
+  font-weight: var(--font-weight-4);
+  line-height: var(--line-height-4);
+  letter-spacing: var(--letter-spacing-4);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-family-accent);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.dark-bg {
+  background-color: var(--bg-dark);
+}
+
+.container {
+  max-width: 1440px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  padding-top: var(--padding);
+  padding-bottom: var(--padding);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  padding-left: 70px;
+  font-family: var(--font-family-accent);
+  font-size: var(--font-size-3);
+  line-height: 50px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--white);
+  background: url('assets/svg/logo.svg') no-repeat left top 8px;
+  transition: all var(--transition-duration);
+}
+
+.logo:hover {
+  cursor: pointer;
+  filter: invert(55%) sepia(32%) saturate(383%) hue-rotate(356deg)
+    brightness(93%) contrast(84%);
+}
+
+.menu {
+  display: flex;
+}
+
+.menu-item {
+  padding-right: var(--padding);
+}
+.menu-item:last-child{
+   padding-right: 0;
+}
+
+.menu-link {
+  color: var(--white);
+  transition: color var(--transition-duration);
+}
+
+.menu-link:hover,
+.menu-link:active {
+  color: var(--font-gold);
 }
