@@ -238,3 +238,25 @@ a {
   font-weight: var(--font-weight-5);
   line-height: var(--line-height-5);
 }
+
+.explore-section {
+  display: flex;
+}
+
+.wrapper {
+  margin-right: 60px;
+  line-height: 38px;
+  letter-spacing: 0.5px;
+}
+
+.section-content-first {
+  padding-top: var(--padding);
+}
+
+.section-content {
+  padding-top: 30px;
+}
+
+.gold {
+  color: var(--font-gold);
+}
