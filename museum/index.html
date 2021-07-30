@@ -46,7 +46,7 @@
             Welcome <br />
             to the Louvre
           </h1>
-          <p class="section-subtitle">From the castle to the museum</p>
+          <h2 class="section-subtitle">From the castle to the museum</h2>
           <a
             class="welcome-btn"
             href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736"
@@ -167,7 +167,7 @@
           </div>
           <img
             src="assets/img/las-meninas.jpg"
-            alt="painting Las Meninas"
+            alt="Las Meninas - Diego Velázquez"
             width="720"
             height="700"
           />
@@ -207,11 +207,101 @@
             <button class="fullscreen"></button>
           </div>
           <div class="description-wrapper">
-            <h2 class="section-title gold-title">Video journey</h2>
+            <h2 class="section-title gold-title video-title">Video journey</h2>
             <p class="description">
               Enter and visit one of the most famous museums in the world and
               enjoy masterpieces such as Mona Lisa or Hammurabi's Code
             </p>
+          </div>
+        </div>
+      </section>
+      <section class="dark-bg">
+        <div class="container">
+          <h2 class="section-title underlined-title">Buy tickets</h2>
+          <div class="tickets-wrapper">
+            <img
+              src="/museum/assets/img/tickets.jpg"
+              alt="Venus Presenting Aeneas with Arms Forged by Vulcan - Pompeo Girolamo Batoni"
+              width="720"
+              height="550"
+            />
+            <div class="tickets-content">
+              <div class="tickets-types">
+                <h4 class="tickets-subtitle">Ticket Type</h4>
+                <label class="types-container"
+                  >Permanent exhibition
+                  <input type="radio" checked="checked" name="radio" />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="types-container"
+                  >Temporary exhibition
+                  <input type="radio" name="radio" />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="types-container"
+                  >Combined Admission
+                  <input type="radio" name="radio" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="tickets-amount">
+                <h4 class="tickets-subtitle amount-subtitle">Amount</h4>
+                <p class="tickets-age">Basic 18+</p>
+                <div class="tickets-count-wrapper">
+                  <button
+                    class="tickets-btn"
+                    type="button"
+                    onclick="this.nextElementSibling.stepDown()"
+                  >
+                    –
+                  </button>
+                  <input
+                    class="tickets-count"
+                    type="number"
+                    min="0"
+                    max="100"
+                    value="1"
+                    readonly="readonly"
+                  />
+                  <button
+                    class="tickets-btn"
+                    type="button"
+                    onclick="this.previousElementSibling.stepUp()"
+                  >
+                    +
+                  </button>
+                </div>
+                <p class="tickets-age">Senior 65+</p>
+                <div class="tickets-count-wrapper tickets-count-wrapper-last">
+                  <button
+                    class="tickets-btn"
+                    type="button"
+                    onclick="this.nextElementSibling.stepDown()"
+                  >
+                    –
+                  </button>
+                  <input
+                    class="tickets-count"
+                    type="number"
+                    min="0"
+                    max="100"
+                    value="1"
+                    readonly="readonly"
+                  />
+                  <button
+                    class="tickets-btn"
+                    type="button"
+                    onclick="this.previousElementSibling.stepUp()"
+                  >
+                    +
+                  </button>
+                </div>
+                <h4 class="tickets-subtitle tickets-subtitle-total">
+                  Total €220
+                </h4>
+                <button class="buy-btn">Buy Now</button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -9,6 +9,8 @@
   --player-progress: #24809e;
   --player-progress-2: #c4c4c4;
 
+  --gold-filter: invert(60%) sepia(3%) saturate(3493%) hue-rotate(356deg);
+
   --font-family-main: 'Roboto', sans-serif;
   --font-family-accent: 'Forum', cursive;
 
@@ -56,7 +58,6 @@ body {
   font-size: var(--font-size-4);
   font-weight: var(--font-weight-4);
   line-height: var(--line-height-4);
-  letter-spacing: var(--letter-spacing-4);
 }
 
 h1,
@@ -72,6 +73,14 @@ li {
 a {
   text-decoration: none;
 }
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+/* *** header *** */
 
 .dark-bg {
   background-color: var(--bg-dark);
@@ -105,8 +114,7 @@ a {
 
 .logo:hover {
   cursor: pointer;
-  filter: invert(55%) sepia(32%) saturate(383%) hue-rotate(356deg)
-    brightness(93%) contrast(84%);
+  filter: var(--gold-filter);
 }
 
 .menu {
@@ -130,6 +138,8 @@ a {
   color: var(--font-gold);
 }
 
+/* *** welcome section *** */
+
 .welcome-section {
   height: 750px;
   background-image: url('assets/img/background.jpg');
@@ -150,6 +160,7 @@ a {
 }
 
 .section-subtitle {
+  font-family: var(--font-family-main);
   font-size: var(--font-size-3);
   font-weight: var(--font-weight-3);
   line-height: var(--line-height-3);
@@ -168,6 +179,8 @@ a {
 .welcome-btn:hover {
   background-color: var(--font-gold);
 }
+
+/* *** visiting section *** */
 
 .gold-title {
   color: var(--font-gold);
@@ -244,6 +257,8 @@ a {
   line-height: var(--line-height-5);
 }
 
+/* *** explore section *** */
+
 .explore-section {
   display: flex;
 }
@@ -266,6 +281,8 @@ a {
   color: var(--font-gold);
 }
 
+/* *** video section *** */
+
 .video-section {
   padding-top: 90px;
 }
@@ -282,7 +299,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--padding-2);
+  padding: var(--padding-2) 30px;
   background-color: var(--bg-dark);
 }
 
@@ -322,10 +339,7 @@ a {
 .fullscreen {
   width: 40px;
   height: 35px;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  transition: all var(--transition-duration);
+  transition: filter var(--transition-duration);
 }
 
 .main-play:hover,
@@ -337,6 +351,7 @@ a {
   cursor: pointer;
   filter: invert(62%) sepia(0%) saturate(14%) hue-rotate(137deg) brightness(99%)
     contrast(88%);
+  transition: filter var(--transition-duration);
 }
 
 .main-play {
@@ -374,8 +389,146 @@ a {
   padding-top: 50px;
 }
 
+.video-title {
+  padding-bottom: 0;
+}
+
 .description {
   flex-basis: 50%;
   line-height: 38px;
-  letter-spacing: normal;
 }
+
+/* *** tickets section *** */
+.tickets-wrapper,
+.tickets-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tickets-wrapper {
+  padding-top: var(--padding);
+}
+
+.tickets-content {
+  flex-basis: 45%;
+}
+
+.tickets-subtitle {
+  padding-bottom: 50px;
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-3);
+  line-height: var(--line-height-3);
+}
+
+.tickets-subtitle-total {
+  letter-spacing: var(--letter-spacing-3);
+}
+
+.tickets-types {
+  display: flex;
+  flex-direction: column;
+}
+
+.types-container {
+  position: relative;
+  display: block;
+  padding-left: var(--padding-2);
+  margin-bottom: var(--padding-2);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: color var(--transition-duration);
+}
+
+.types-container:hover {
+  color: var(--font-gold);
+}
+
+.types-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 15px;
+  left: -10px;
+  height: 17px;
+  width: 17px;
+  background: url(/museum/assets/svg/radio.svg) 0 0 no-repeat;
+  transition: filter var(--transition-duration);
+}
+
+/* On mouse-over, add a gold color */
+.types-container:hover input ~ .checkmark {
+  filter: var(--gold-filter);
+}
+
+/* When the radio button is checked, add another image */
+.types-container input:checked + .checkmark {
+  background: url(/museum/assets/svg/radio-checked.svg) 0 0 no-repeat;
+}
+
+.tickets-amount {
+  text-align: right;
+}
+
+.amount-subtitle {
+  padding-bottom: 0;
+}
+
+.tickets-age {
+  text-align: left;
+}
+
+.tickets-count-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--padding-2);
+  padding-right: 15px;
+  padding-left: 15px;
+  border: 2px solid var(--white);
+}
+
+.tickets-count-wrapper-last {
+  margin-bottom: 50px;
+}
+
+.tickets-btn {
+  font-size: var(--font-size-2);
+  line-height: var(--line-height-2);
+  color: var(--white);
+  transition: color var(--transition-duration);
+}
+
+.tickets-btn:hover {
+  color: var(--font-gold);
+  cursor: pointer;
+}
+
+.tickets-count {
+  all: unset;
+  text-align: center;
+}
+
+.buy-btn {
+  padding: 10px 30px;
+  font-size: var(--font-size-4);
+  letter-spacing: var(--letter-spacing-4);
+  font-weight: var(--font-weight-3);
+  background-color: var(--white);
+  transition: background-color var(--transition-duration);
+}
+
+.buy-btn:hover {
+  background-color: var(--font-gold);
+  cursor: pointer;
+}
+
+/* *** contacts section *** */
+
+/* *** footer *** */
