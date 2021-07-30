@@ -108,12 +108,12 @@ button {
   line-height: 50px;
   letter-spacing: 5px;
   text-transform: uppercase;
+  color: var(--white);
   background: url('assets/svg/logo.svg') no-repeat left top 8px;
   transition: all var(--transition-duration);
 }
 
 .logo:hover {
-  cursor: pointer;
   filter: var(--gold-filter);
 }
 
@@ -123,8 +123,9 @@ button {
 
 .menu-item {
   padding-right: var(--padding);
+  letter-spacing: var(--letter-spacing-3);
 }
-.menu-item:last-child {
+.header-container .menu-item:last-child {
   padding-right: 0;
 }
 
@@ -293,6 +294,9 @@ button {
 
 .video {
   display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
 }
 
 .controllers {
@@ -553,4 +557,58 @@ button {
 .contacts-link:hover {
   color: var(--font-gold);
 }
+
 /* *** footer *** */
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.nav {
+  flex-basis: 25%;
+  /* // убрать после дедлайна margin-left*/
+  margin-left: -163px;
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.social {
+  display: flex;
+  align-items: flex-end;
+}
+
+.social-link {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-left: var(--padding-2);
+  color: var(--white);
+  transition: filter var(--transition-duration);
+}
+
+.social-link:hover {
+  filter: var(--gold-filter);
+}
+
+.youtube {
+  background: url('assets/svg/youtube.svg') no-repeat;
+}
+
+.instagram {
+  background: url('assets/svg/instagram.svg') no-repeat;
+}
+.facebook {
+  background: url('assets/svg/facebook.svg') no-repeat;
+}
+.twitter {
+  background: url('assets/svg/twitter.svg') no-repeat;
+}
+.pinterest {
+  background: url('assets/svg/pinterest.svg') no-repeat;
+}
