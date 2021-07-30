@@ -413,12 +413,15 @@ button {
   flex-basis: 45%;
 }
 
-.tickets-subtitle {
-  padding-bottom: 50px;
+.subtitle-roboto {
   font-family: var(--font-family-main);
   font-size: var(--font-size-3);
   font-weight: var(--font-weight-3);
   line-height: var(--line-height-3);
+}
+
+.tickets-subtitle {
+  padding-bottom: 50px;
 }
 
 .tickets-subtitle-total {
@@ -531,4 +534,23 @@ button {
 
 /* *** contacts section *** */
 
+.contacts-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--padding);
+}
+
+.contacts-subtitle {
+  font-weight: 500;
+  padding-bottom: var(--padding-2);
+}
+
+.contacts-link {
+  color: var(--black);
+  transition: color var(--transition-duration);
+}
+
+.contacts-link:hover {
+  color: var(--font-gold);
+}
 /* *** footer *** */
