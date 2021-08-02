@@ -4,8 +4,6 @@
   --font-gold: #9d8665;
   --white: #ffffff;
   --black: #000000;
-  /* --player-icon: #B3B3B3; */
-  /* --player-icon-hover: #989898; */
   --player-progress: #24809e;
   --player-progress-2: #c4c4c4;
 
@@ -466,7 +464,7 @@ button {
   left: -10px;
   height: 17px;
   width: 17px;
-  background: url(/museum/assets/svg/radio.svg) 0 0 no-repeat;
+  background: url(assets/svg/radio.svg) 0 0 no-repeat;
   transition: filter var(--transition-duration);
 }
 
@@ -477,7 +475,7 @@ button {
 
 /* When the radio button is checked, add another image */
 .types-container input:checked + .checkmark {
-  background: url(/museum/assets/svg/radio-checked.svg) 0 0 no-repeat;
+  background: url(assets/svg/radio-checked.svg) 0 0 no-repeat;
 }
 
 .tickets-amount {
