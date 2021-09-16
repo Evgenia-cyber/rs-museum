@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="assets/favicon.ico" />
-    <title>Museum</title>
+    <title>museum</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!--header-->
     <header class="dark-bg" id="header">
       <div class="container header-container">
-        <a class="logo" href="#header">Louvre</a>
+        <h1><a class="logo" href="#header">Louvre</a></h1>
         <nav>
           <ul class="menu">
             <li class="menu-item">
@@ -30,6 +31,9 @@
               <a class="menu-link" href="#video">Video</a>
             </li>
             <li class="menu-item">
+              <a class="menu-link" href="#gallery">Gallery</a>
+            </li>
+            <li class="menu-item">
               <a class="menu-link" href="#tickets">Tickets</a>
             </li>
             <li class="menu-item">
@@ -39,21 +43,41 @@
         </nav>
       </div>
     </header>
+    <!--/header-->
     <main>
+      <!--section welcome-->
       <section class="welcome-section dark-bg" id="welcome">
         <div class="container">
-          <h1 class="section-title welcome-title">
+          <h2 class="section-title welcome-title">
             Welcome <br />
             to the Louvre
-          </h1>
-          <h2 class="section-subtitle">From the castle to the museum</h2>
+          </h2>
+          <p class="section-subtitle">From the castle to the museum</p>
           <a
             class="welcome-btn"
             href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736"
             >Discover the Louvre</a
           >
+          <div class="slider-control">
+            <div class="slide-numbers">
+              <span class="current-slide-number">01</span>
+              <span class="count-all-slides">05</span>
+            </div>
+            <div class="slide-dots">
+              <span class="slide-dot"></span>
+              <span class="slide-dot"></span>
+              <span class="slide-dot"></span>
+              <span class="slide-dot"></span>
+              <span class="slide-dot"></span>
+            </div>
+            <div class="slide-controls">
+              <button class="to-prev-slide"></button>
+              <button class="to-next-slide"></button>
+            </div>
+          </div>
         </div>
       </section>
+      <!--/section welcome-->
       <section class="visiting-section" id="visiting">
         <div class="container">
           <h2 class="section-title gold-title underlined-title">

@@ -8,6 +8,8 @@
   --player-progress-2: #c4c4c4;
 
   --gold-filter: invert(60%) sepia(3%) saturate(3493%) hue-rotate(356deg);
+  --red-filter: invert(8%) sepia(49%) saturate(7056%) hue-rotate(356deg)
+    brightness(97%) contrast(98%);
 
   --font-family-main: 'Roboto', sans-serif;
   --font-family-accent: 'Forum', cursive;
@@ -97,6 +99,8 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .logo {
@@ -107,7 +111,7 @@ button {
   letter-spacing: 5px;
   text-transform: uppercase;
   color: var(--white);
-  background: url('assets/svg/logo.svg') no-repeat left top 8px;
+  background: url('assets/svg/logo.svg') no-repeat left top;
   transition: all var(--transition-duration);
 }
 
@@ -120,9 +124,10 @@ button {
 }
 
 .menu-item {
-  padding-right: var(--padding);
+  padding-right: 55px;
   letter-spacing: var(--letter-spacing-3);
 }
+
 .header-container .menu-item:last-child {
   padding-right: 0;
 }
@@ -140,14 +145,17 @@ button {
 /* *** welcome section *** */
 
 .welcome-section {
+  position: relative;
   height: 750px;
+  padding-bottom: 60px;
   background-image: url('assets/img/background.jpg');
   background-repeat: no-repeat;
-  background-position: calc(50% + 350px) calc(100%);
+  background-position: calc(50% + 215px) calc(100% - 60px);
 }
 
 .section-title {
   font-size: var(--font-size-1);
+  font-weight: 300;
   line-height: var(--line-height-1);
   letter-spacing: var(--letter-spacing-1);
   text-transform: uppercase;
@@ -155,7 +163,7 @@ button {
 }
 
 .welcome-title {
-  padding-top: 40px;
+  padding-top: 70px;
 }
 
 .section-subtitle {
@@ -164,11 +172,12 @@ button {
   font-weight: var(--font-weight-3);
   line-height: var(--line-height-3);
   letter-spacing: var(--letter-spacing-3);
-  padding-bottom: var(--padding);
+  padding-bottom: 90px;
 }
 
 .welcome-btn {
   padding: var(--padding-2) 70px;
+  letter-spacing: 2px;
   color: var(--white);
   background-color: var(--dark-red);
   border-radius: var(--border-radius);
@@ -179,6 +188,87 @@ button {
   background-color: var(--font-gold);
 }
 
+.slider-control {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  height: 120px;
+  padding: 0px 150px 0 70px;
+  background-color: var(--black);
+}
+
+.slide-numbers {
+  width: 70px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  line-height: 20px;
+}
+
+.current-slide-number {
+  padding-right: 14px;
+  border-right: 1px solid var(--white);
+}
+
+.count-all-slides {
+  padding-left: 15px;
+}
+
+.slide-dots {
+  width: 180px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 60px;
+  padding-left: 60px;
+}
+
+.slide-dot {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: var(--white);
+  transition: background-color var(--transition-duration);
+}
+
+.slide-dot:first-child {
+  background-color: var(--font-gold);
+}
+
+.slide-dot:hover {
+  cursor: pointer;
+  background-color: var(--dark-red);
+}
+
+.slide-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 80px;
+}
+
+.to-next-slide,
+.to-prev-slide {
+  width: 30px;
+  height: 8px;
+  transition: filter var(--transition-duration);
+}
+
+.to-prev-slide {
+  background: url('assets/svg/arrow-to-left.svg') no-repeat;
+}
+
+.to-next-slide {
+  background: url('assets/svg/arrow-to-right.svg') no-repeat;
+}
+
+.to-next-slide:hover,
+.to-prev-slide:hover {
+  cursor: pointer;
+  filter: var(--gold-filter);
+}
 /* *** visiting section *** */
 
 .gold-title {
