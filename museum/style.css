@@ -297,24 +297,13 @@ button {
 
 .card {
   display: block;
-  margin-top: var(--padding);
+  margin-top: 70px;
   color: var(--black);
   transition: all var(--transition-duration);
 }
 
 .card:hover {
-  color: var(--font-gold);
-}
-
-.card:hover img {
-  box-sizing: border-box;
-  border: 1px solid var(--font-gold);
-  transition: border var(--transition-duration);
-}
-
-.card:hover .card-title::after {
-  background-color: var(--font-gold);
-  transition: background-color var(--transition-duration);
+  cursor: default;
 }
 
 .card-title {
@@ -334,6 +323,15 @@ button {
   width: 70%;
   height: 3px;
   background-color: var(--dark-red);
+  transition: width var(--transition-duration);
+}
+
+.card-title:hover {
+  cursor: pointer;
+}
+
+.card-title:hover::after {
+  width: 100%;
 }
 
 .card-virtual {
