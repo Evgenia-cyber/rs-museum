@@ -205,24 +205,29 @@
       <!--section video-->
       <section>
         <div class="container video-section" id="video">
+          <div class="description-wrapper">
+            <h2 class="section-title gold-title">Video journey</h2>
+            <p class="description">
+              Enter and visit one of the most famous museums in the world and
+              enjoy masterpieces such as Mona Lisa or Hammurabi's Code
+            </p>
+          </div>
           <div class="video-wrapper">
             <video
               width="1440"
-              height="629"
+              height="650"
               class="video"
-              src="assets/video/video.mp4"
+              src="https://youtu.be/zp1BXPX8jcU"
               poster="assets/img/poster.jpg"
             ></video>
-            <button class="main-play"></button>
+            <button class="main-play-icon"></button>
           </div>
           <div class="controllers">
-            <button class="prev"></button>
             <button class="play"></button>
-            <button class="next"></button>
             <input
-              class="progress"
+              class="progress progress-video"
               type="range"
-              value="40"
+              value="50"
               min="0"
               max="100"
               step="1"
@@ -231,19 +236,50 @@
             <input
               class="progress progress-volume"
               type="range"
-              value="40"
+              value="50"
               min="0"
               max="100"
               step="1"
             />
             <button class="fullscreen"></button>
           </div>
-          <div class="description-wrapper">
-            <h2 class="section-title gold-title video-title">Video journey</h2>
-            <p class="description">
-              Enter and visit one of the most famous museums in the world and
-              enjoy masterpieces such as Mona Lisa or Hammurabi's Code
-            </p>
+          <div class="videos">
+            <iframe
+              width="452"
+              height="254"
+              src="https://www.youtube.com/embed/zp1BXPX8jcU"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <iframe
+              width="452"
+              height="254"
+              src="https://www.youtube.com/embed/Vi5D6FKhRmo"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <iframe
+              width="452"
+              height="254"
+              src="https://www.youtube.com/embed/NOhDysLnTvY"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="video-slider-controls">
+            <button class=" video-slider-btn video-slider-prev"></button>
+            <div class="video-slider-dot video-slider-dot-active"></div>
+            <div class="video-slider-dot"></div>
+            <div class="video-slider-dot"></div>
+            <div class="video-slider-dot"></div>
+            <div class="video-slider-dot"></div>
+            <button class=" video-slider-btn video-slider-next"></button>
           </div>
         </div>
       </section>
@@ -431,5 +467,7 @@
       </div>
     </footer>
     <!--/footer-->
+
+    <script src="script.js"></script>
   </body>
 </html>

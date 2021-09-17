@@ -4,12 +4,14 @@
   --font-gold: #9d8665;
   --white: #ffffff;
   --black: #000000;
-  --player-progress: #24809e;
+  /* --player-progress: #24809e; */
   --player-progress-2: #c4c4c4;
+  --visited-video-slider-dot: #333333;
+  --unvisited-video-slider-dot: #999999;
 
   --gold-filter: invert(60%) sepia(3%) saturate(3493%) hue-rotate(356deg);
-  --red-filter: invert(8%) sepia(49%) saturate(7056%) hue-rotate(356deg)
-    brightness(97%) contrast(98%);
+  --red-filter: invert(13%) sepia(30%) saturate(4377%) hue-rotate(337deg)
+    brightness(113%) contrast(119%);
 
   --font-family-main: 'Roboto', sans-serif;
   --font-family-accent: 'Forum', cursive;
@@ -368,18 +370,29 @@ button {
   letter-spacing: 0.5px;
 }
 
-.explore-img{
+.explore-img {
   padding-top: 12px;
 }
 
 /* *** video section *** */
 
 .video-section {
-  padding-top: 90px;
+  padding-top: var(--padding);
 }
 
 .video-wrapper {
   position: relative;
+}
+
+.description-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  flex-basis: 50%;
+  line-height: 38px;
+  padding-top: 10px;
 }
 
 .video {
@@ -387,6 +400,7 @@ button {
   width: 100%;
   height: auto;
   max-height: 100%;
+  padding-top: 55px;
 }
 
 .controllers {
@@ -400,15 +414,15 @@ button {
 .progress {
   background: linear-gradient(
     to right,
-    var(--player-progress) 0%,
-    var(--player-progress) 40%,
-    var(--player-progress-2) 40%,
+    var(--dark-red) 0%,
+    var(--dark-red) 50%,
+    var(--player-progress-2) 50%,
     var(--player-progress-2) 100%
   );
   height: 8px;
-  width: 800px;
+  width: 929px;
   outline: none;
-  transition: background 450ms ease-in;
+  transition: all 450ms ease-in;
   -webkit-appearance: none;
 }
 
@@ -425,10 +439,8 @@ button {
   background: var(--white);
 }
 
-.main-play,
-.prev,
+.main-play-icon,
 .play,
-.next,
 .volume,
 .fullscreen {
   width: 40px;
@@ -436,10 +448,8 @@ button {
   transition: filter var(--transition-duration);
 }
 
-.main-play:hover,
-.prev:hover,
+.main-play-icon:hover,
 .play:hover,
-.next:hover,
 .volume:hover,
 .fullscreen:hover {
   cursor: pointer;
@@ -448,25 +458,17 @@ button {
   transition: filter var(--transition-duration);
 }
 
-.main-play {
+.main-play-icon {
   position: absolute;
   left: calc(50% - 110px);
-  top: calc(50% - 110px);
+  top: calc(50% - 90px);
   width: 220px;
   height: 220px;
-  background: url('assets/svg/main-play.svg') no-repeat;
-}
-
-.prev {
-  background: url('assets/svg/prev.svg') no-repeat;
+  background: url('assets/svg/main-play-icon.svg') no-repeat;
 }
 
 .play {
   background: url('assets/svg/play.svg') no-repeat;
-}
-
-.next {
-  background: url('assets/svg/next.svg') no-repeat;
 }
 
 .volume {
@@ -477,19 +479,54 @@ button {
   background: url('assets/svg/not-fullscreen.svg') no-repeat;
 }
 
-.description-wrapper {
+.videos {
   display: flex;
   justify-content: space-between;
-  padding-top: 50px;
+  padding: 37px 0;
 }
 
-.video-title {
-  padding-bottom: 0;
+.video-slider-controls {
+  width: 200px;
+  height: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
-.description {
-  flex-basis: 50%;
-  line-height: 38px;
+.video-slider-dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: var(--unvisited-video-slider-dot);
+  border-radius: 50%;
+  transition: background-color var(--transition-duration);
+}
+
+.video-slider-dot:hover {
+  cursor: pointer;
+  background-color: var(--dark-red);
+}
+
+.video-slider-dot-active {
+  background-color: var(--visited-video-slider-dot);
+}
+
+.video-slider-btn {
+  width: 12px;
+  transition: filter var(--transition-duration);
+}
+
+.video-slider-btn:hover {
+  cursor: pointer;
+  filter: var(--gold-filter);
+}
+
+.video-slider-prev {
+  background: url('assets/svg/video-slider-prev.svg') no-repeat;
+}
+
+.video-slider-next {
+  background: url('assets/svg/video-slider-next.svg') no-repeat;
 }
 
 /* *** tickets section *** */
