@@ -353,7 +353,6 @@ button {
 .explore-wrapper {
   margin-right: 60px;
   line-height: 38px;
-  letter-spacing: 0.5px;
 }
 
 .section-content-first {
@@ -366,6 +365,11 @@ button {
 
 .gold {
   color: var(--font-gold);
+  letter-spacing: 0.5px;
+}
+
+.explore-img{
+  padding-top: 12px;
 }
 
 /* *** video section *** */
