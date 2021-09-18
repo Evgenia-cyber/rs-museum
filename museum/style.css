@@ -271,6 +271,15 @@ button {
   cursor: pointer;
   filter: var(--gold-filter);
 }
+
+/* *** tours *** */
+
+.tour {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
 /* *** visiting section *** */
 
 .gold-title {
