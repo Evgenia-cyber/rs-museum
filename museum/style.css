@@ -587,7 +587,7 @@ button {
 }
 
 .tickets-wrapper {
-  padding-top: var(--padding);
+  padding-top: 80px;
 }
 
 .tickets-content {
@@ -597,15 +597,16 @@ button {
 .subtitle-roboto {
   font-family: var(--font-family-main);
   font-size: var(--font-size-3);
-  font-weight: var(--font-weight-3);
+  font-weight: 700;
   line-height: var(--line-height-3);
 }
 
-.tickets-subtitle {
-  padding-bottom: 50px;
+.tickets-subtitle-type {
+  padding-bottom: 45px;
 }
 
 .tickets-subtitle-total {
+  padding-bottom: 55px;
   letter-spacing: var(--letter-spacing-3);
 }
 
@@ -618,7 +619,6 @@ button {
   position: relative;
   display: block;
   padding-left: var(--padding-2);
-  margin-bottom: var(--padding-2);
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -640,7 +640,7 @@ button {
 .checkmark {
   position: absolute;
   top: 15px;
-  left: -10px;
+  left: 0px;
   height: 17px;
   width: 17px;
   background: url(assets/svg/radio.svg) 0 0 no-repeat;
@@ -662,20 +662,22 @@ button {
 }
 
 .amount-subtitle {
-  padding-bottom: 0;
+  padding-bottom: 15px;
 }
 
 .tickets-age {
+  padding-left: 22px;
   text-align: left;
 }
 
 .tickets-count-wrapper {
-  display: flex;
+  width: 150px;
+  display: inline-flex;
   justify-content: space-between;
-  margin-bottom: var(--padding-2);
   padding-right: 15px;
   padding-left: 15px;
-  border: 2px solid var(--white);
+  border: 2px solid var(--black);
+  box-sizing: border-box;
 }
 
 .tickets-count-wrapper-last {
@@ -685,7 +687,7 @@ button {
 .tickets-btn {
   font-size: var(--font-size-2);
   line-height: var(--line-height-2);
-  color: var(--white);
+  color: var(--black);
   transition: color var(--transition-duration);
 }
 
@@ -700,11 +702,12 @@ button {
 }
 
 .buy-btn {
-  padding: 10px 30px;
+  padding: 10px 35px;
   font-size: var(--font-size-4);
   letter-spacing: var(--letter-spacing-4);
   font-weight: var(--font-weight-3);
-  background-color: var(--white);
+  color: var(--white);
+  background-color: var(--black);
   transition: background-color var(--transition-duration);
 }
 
