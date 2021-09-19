@@ -538,6 +538,47 @@ button {
   background: url('assets/svg/video-slider-next.svg') no-repeat;
 }
 
+/* *** gallery section *** */
+.gallery-container {
+  padding-bottom: 0;
+}
+
+.gallery-outer-container {
+  position: relative;
+  max-width: 1440px;
+  max-height: 2010px;
+  overflow-y: hidden;
+}
+
+.gallery-outer-container::after {
+  content: '';
+  position: absolute;
+  max-width: 1440px;
+  width: 100%;
+  height: 360px;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  box-sizing: border-box;
+}
+
+.gallery-inner-container {
+  column-width: 450px;
+  column-count: 3;
+  column-gap: 36px;
+  row-gap: 24px;
+  padding-top: 60px;
+}
+
+.gallery-inner-container img {
+  width: 450px;
+}
+
+.gallery-inner-container img:nth-child(1),
+.gallery-inner-container img:nth-child(11) {
+  padding-top: 40px;
+}
+
 /* *** tickets section *** */
 .tickets-wrapper,
 .tickets-content {
