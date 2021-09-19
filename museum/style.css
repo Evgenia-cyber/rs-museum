@@ -8,6 +8,7 @@
   --player-progress-2: #c4c4c4;
   --visited-video-slider-dot: #333333;
   --unvisited-video-slider-dot: #999999;
+  --footer-line-color: #666666;
 
   --gold-filter: invert(60%) sepia(3%) saturate(3493%) hue-rotate(356deg);
   --red-filter: invert(13%) sepia(30%) saturate(4377%) hue-rotate(337deg)
@@ -718,7 +719,7 @@ button {
 
 /* *** parallax section *** */
 .parallax {
-  width: 100vw;
+  width: 100%;
   height: 400px;
   background: url('assets/img/parallax.jpg') no-repeat;
   background-size: cover;
@@ -734,7 +735,7 @@ button {
 
 .contacts-subtitle {
   font-weight: 500;
-  padding-bottom: var(--padding-2);
+  padding-bottom: 50px;
 }
 
 .contacts-link {
@@ -747,11 +748,11 @@ button {
 }
 
 /* *** footer *** */
-
 .footer-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding-bottom: 50px;
 }
 
 .nav {
@@ -791,12 +792,28 @@ button {
 .instagram {
   background: url('assets/svg/instagram.svg') no-repeat;
 }
+
 .facebook {
   background: url('assets/svg/facebook.svg') no-repeat;
 }
+
 .twitter {
   background: url('assets/svg/twitter.svg') no-repeat;
 }
+
 .pinterest {
   background: url('assets/svg/pinterest.svg') no-repeat;
+}
+
+.footer-line {
+  border-bottom: 3px solid var(--footer-line-color);
+}
+
+.footer-container-rs {
+  padding-top: var(--padding-2);
+  padding-bottom: var(--padding-2);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  letter-spacing: 2px;
 }
