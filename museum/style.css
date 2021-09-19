@@ -716,8 +716,16 @@ button {
   cursor: pointer;
 }
 
-/* *** contacts section *** */
+/* *** parallax section *** */
+.parallax {
+  width: 100vw;
+  height: 400px;
+  background: url('assets/img/parallax.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
+/* *** contacts section *** */
 .contacts-container {
   display: flex;
   justify-content: space-between;
