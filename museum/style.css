@@ -557,7 +557,7 @@ button {
   position: relative;
   max-width: 1440px;
   max-height: 2010px;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .gallery-outer-container::after {
