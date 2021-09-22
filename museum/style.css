@@ -9,6 +9,8 @@
   --visited-video-slider-dot: #333333;
   --unvisited-video-slider-dot: #999999;
   --footer-line-color: #666666;
+  --pay-card-color: #a4a4a3;
+  --pay-card-back-color: #939393;
 
   --gold-filter: invert(60%) sepia(3%) saturate(3493%) hue-rotate(356deg);
   --red-filter: invert(13%) sepia(30%) saturate(4377%) hue-rotate(337deg)
@@ -16,6 +18,9 @@
 
   --font-family-main: 'Roboto', sans-serif;
   --font-family-accent: 'Forum', cursive;
+
+  --font-size-buy-main-title: 50px;
+  --line-height-buy-main-title: 55.2px;
 
   --font-size-1: 80px;
   --line-height-1: 90px;
@@ -38,6 +43,9 @@
   --font-size-5: 18px;
   --font-weight-5: 100;
   --line-height-5: 21px;
+
+  --font-size-6: 12px;
+  --line-height-6: 14px;
 
   --padding: 75px;
   --padding-2: 25px;
@@ -585,6 +593,8 @@ button {
 .gallery-inner-container img:nth-child(11) {
   margin-top: 40px;
 }
+
+/* *** buy tickets form *** */
 
 /* *** tickets section *** */
 .tickets-wrapper,
