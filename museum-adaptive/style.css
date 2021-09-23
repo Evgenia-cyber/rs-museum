@@ -313,6 +313,7 @@ button {
   display: flex;
   column-gap: 60px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
@@ -442,6 +443,12 @@ button {
   outline: none;
   transition: all 450ms ease-in;
   -webkit-appearance: none;
+}
+
+@media (max-width: 1350px) {
+.progress-video {
+  width: 750px;
+}
 }
 
 .progress-volume {
@@ -578,6 +585,12 @@ button {
   padding-top: 60px;
 }
 
+@media (max-width: 1470px) {
+  .gallery-inner-container {
+    column-width: 330px;
+  }
+}
+
 .gallery-img {
   display: block;
   width: 100%;
@@ -601,6 +614,7 @@ button {
 .tickets-content {
   display: flex;
   justify-content: space-between;
+  padding: 12px;
 }
 
 .tickets-wrapper {
@@ -783,6 +797,13 @@ button {
   flex-wrap: wrap;
 }
 
+@media (max-width: 1250px) {
+  .footer-menu {
+    flex-wrap: nowrap;
+    padding-bottom: 30px;
+  }
+}
+
 .social {
   display: flex;
   align-items: flex-end;
@@ -795,6 +816,13 @@ button {
   margin-left: var(--padding-2);
   color: var(--white);
   transition: filter var(--transition-duration);
+}
+
+@media (max-width: 1250px) {
+  .social-link {
+    margin-left: 0;
+    margin-right: var(--padding-2);
+  }
 }
 
 .social-link:hover {
