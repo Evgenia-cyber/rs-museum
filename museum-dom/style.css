@@ -156,12 +156,46 @@ button {
 /* *** welcome section *** */
 
 .welcome-section {
-  position: relative;
+  /* position: relative; */
   height: 750px;
   padding-bottom: 60px;
-  background-image: url('assets/img/background.jpg');
+  /* background-image: url('assets/img/welcome-slider/1.jpg');
   background-repeat: no-repeat;
-  background-position: calc(50% + 215px) calc(100% - 60px);
+  background-position: calc(50% + 215px) calc(100% - 60px); */
+}
+
+.welcome-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.slider {
+  position: relative;
+  max-width: 1000px;
+  max-height: 750px;
+}
+
+.slider::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  width: 500px;
+  height: 750px;
+  background: linear-gradient(
+    90deg,
+    var(--bg-dark) 10%,
+    rgba(3, 3, 3, 0.5) 50%,
+    rgba(3, 3, 3, 0) 100%
+  );
+}
+
+.welcome-content {
+  position: absolute;
+  top: var(--padding);
+  left: 0;
 }
 
 .section-title {
@@ -446,9 +480,9 @@ button {
 }
 
 @media (max-width: 1350px) {
-.progress-video {
-  width: 750px;
-}
+  .progress-video {
+    width: 750px;
+  }
 }
 
 .progress-volume {
@@ -699,6 +733,13 @@ button {
 .tickets-age {
   padding-left: 22px;
   text-align: left;
+}
+
+/* чтобы выровнять текст по центру input */
+::-webkit-outer-spin-button,
+::-webkit-inner-spin-button,
+::-webkit-datetime-edit-fields-wrapper {
+  -webkit-appearance: none;
 }
 
 .tickets-count-wrapper {

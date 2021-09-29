@@ -47,15 +47,12 @@
     <main>
       <!--section welcome-->
       <section class="welcome-section dark-bg" id="welcome">
-        <div class="container">
-          <h2 class="section-title welcome-title">
-            Welcome <br />
-            to the Louvre
-          </h2>
-          <p class="section-subtitle">From the castle to the museum</p>
-          <a class="welcome-btn" href="tours/tour0.html" target="_blank"
-            >Discover the Louvre
-          </a>
+        <div class="container welcome-container">
+          <div class="slider">
+            <div class="slides">
+              <img class="slide" src="assets/img/welcome-slider/1.jpg" width="1000" height="750" alt="slide1"/>
+            </div>
+          </div>
           <div class="slider-control">
             <div class="slide-numbers">
               <span class="current-slide-number">01</span>
@@ -72,6 +69,16 @@
               <button class="to-prev-slide"></button>
               <button class="to-next-slide"></button>
             </div>
+          </div>
+          <div class="welcome-content">
+            <h2 class="section-title welcome-title">
+              Welcome <br />
+              to the Louvre
+            </h2>
+            <p class="section-subtitle">From the castle to the museum</p>
+            <a class="welcome-btn" href="tours/tour0.html" target="_blank"
+              >Discover the Louvre
+            </a>
           </div>
         </div>
       </section>
@@ -555,6 +562,7 @@
 
     <script src="js/progress.js"></script>
     <script src="js/gallery.js"></script>
+    <script src="js/slider.js"></script>
     <script src="js/task.js"></script>
   </body>
 </html>
