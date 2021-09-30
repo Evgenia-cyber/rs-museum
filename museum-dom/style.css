@@ -53,6 +53,9 @@
   --border-radius: 10px;
 
   --transition-duration: 0.3s;
+
+  --slider-width: 1000px;
+  --slider-height: 750px;
 }
 
 * {
@@ -69,6 +72,7 @@ body {
   font-size: var(--font-size-4);
   font-weight: var(--font-weight-4);
   line-height: var(--line-height-4);
+  user-select: none;
 }
 
 h1,
@@ -156,8 +160,6 @@ button {
 /* *** welcome section *** */
 
 .welcome-section {
-  /* position: relative; */
-  height: 750px;
   padding-bottom: 60px;
   /* background-image: url('assets/img/welcome-slider/1.jpg');
   background-repeat: no-repeat;
@@ -173,8 +175,9 @@ button {
 
 .slider {
   position: relative;
-  max-width: 1000px;
-  max-height: 750px;
+  max-width: var(--slider-width);
+  max-height: var(--slider-height);
+  overflow: hidden;
 }
 
 .slider::before {
@@ -183,19 +186,37 @@ button {
   left: 0;
   top: 0;
   width: 500px;
-  height: 750px;
+  height: var(--slider-height);
   background: linear-gradient(
     90deg,
     var(--bg-dark) 10%,
     rgba(3, 3, 3, 0.5) 50%,
     rgba(3, 3, 3, 0) 100%
   );
+  z-index: 1;
+}
+
+.slides {
+  position: relative; /*обязательно, иначе не сдвинется влево*/
+  top: 0;
+  left: -1000px;
+  width: 5000px; /* 1000px * 5 slides*/
+  display: flex;
+}
+
+.slides.shifting {
+  transition: left var(--transition-duration) ease-out;
+}
+
+.slide:hover {
+  cursor: pointer;
 }
 
 .welcome-content {
   position: absolute;
   top: var(--padding);
   left: 0;
+  z-index: 1;
 }
 
 .section-title {
@@ -236,7 +257,7 @@ button {
 .slider-control {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -273,13 +294,13 @@ button {
 
 .slide-dot {
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   background-color: var(--white);
   transition: background-color var(--transition-duration);
 }
 
-.slide-dot:first-child {
+.slide-dot.active {
   background-color: var(--font-gold);
 }
 
