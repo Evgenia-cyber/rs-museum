@@ -7,9 +7,12 @@ const welcomeSlides = document.querySelectorAll('.slide');
 const welcomePrevBtn = document.querySelector('.to-prev-slide');
 const welcomeNextBtn = document.querySelector('.to-next-slide');
 const welcomeDots = document.querySelectorAll('.slide-dot');
+const welcomeCurrentSlideNumber = document.querySelector(
+  '.current-slide-number',
+);
 
 /* **************************************** */
-const slide = (wrapper, slides, prevBtn, nextBtn, dots) => {
+const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
   let posX1 = 0;
   let posX2 = 0;
   let posInitial = 0;
@@ -91,15 +94,24 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots) => {
       }
     }
 
-    // Чтобы подсвечивать буллет активного слайда
+    // Чтобы подсвечивать буллет активного слайда и показывать номер активного слайда
     if (index >= 0 && index < dotsLength) {
       dots[index].classList.add('active');
+      if (currentSlideNumber) {
+        currentSlideNumber.textContent = `0${index + 1}`;
+      }
     }
     if (index < 0) {
       dots[dotsLength - 1].classList.add('active');
+      if (currentSlideNumber) {
+        currentSlideNumber.textContent = `0${dotsLength}`;
+      }
     }
     if (index >= dotsLength) {
       dots[0].classList.add('active');
+      if (currentSlideNumber) {
+        currentSlideNumber.textContent = '01';
+      }
     }
 
     allowShift = false;
@@ -160,4 +172,5 @@ slide(
   welcomePrevBtn,
   welcomeNextBtn,
   welcomeDots,
+  welcomeCurrentSlideNumber,
 );
