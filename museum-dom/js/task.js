@@ -1,3 +1,7 @@
+console.log('Этап3: добавление JavaScript');
+console.log('Самооценка: /160 баллов');
+console.log('Слайдер в секции Welcome +24');
+console.log('*****************');
 console.log('Этап2: адаптивная верстка вёрстка');
 console.log('Самооценка: 0 баллов');
 console.log('*****************');

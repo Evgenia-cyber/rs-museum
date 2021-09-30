@@ -59,9 +59,9 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
     posFinal = wrapper.offsetLeft;
 
     if (posFinal - posInitial < -threshold) {
-      shiftSlide(1, 'drag'); // смещаем на один слайд влево
+      shiftSlide(1, 'drag'); // смещаем на 1 следующий слайд
     } else if (posFinal - posInitial > threshold) {
-      shiftSlide(-1, 'drag'); // смещаем на один слайд вправо
+      shiftSlide(-1, 'drag'); // смещаем на 1 предыдущий слайд
     } else {
       wrapper.style.left = posInitial + 'px'; // не смещаем
     }
@@ -73,7 +73,7 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
     document.removeEventListener('mousemove', dragAction);
   };
 
-  const shiftSlide = (dir, action) => {
+  const shiftSlide = (dir, action, position) => {
     wrapper.classList.add('shifting'); // добавляем css transition для плавного смещения изображений
 
     if (index >= 0 && index < dotsLength) {
@@ -85,12 +85,20 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
         posInitial = wrapper.offsetLeft;
       }
 
-      if (dir == 1) {
+      if (dir === 1) {
         wrapper.style.left = posInitial - slideSize + 'px';
         index++;
-      } else if (dir == -1) {
+      } else if (dir === -1) {
         wrapper.style.left = posInitial + slideSize + 'px';
         index--;
+      }
+
+      if (position) {
+        // может быть от 1 до dotsLength
+        position--;
+        const difference = index - position;
+        index = position;
+        wrapper.style.left = posInitial + difference * slideSize + 'px';
       }
     }
 
@@ -148,11 +156,6 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
   //   wrapper.onmousedown = dragStart;
   wrapper.addEventListener('mousedown', dragStart);
 
-  // Touch events
-  //   items.addEventListener('touchstart', dragStart);
-  //   items.addEventListener('touchend', dragEnd);
-  //   items.addEventListener('touchmove', dragAction);
-
   // Click events
   prevBtn.addEventListener('click', () => {
     shiftSlide(-1);
@@ -163,6 +166,13 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
 
   // Transition events - cобытие вызывается, когда переход CSS transition завершен
   wrapper.addEventListener('transitionend', checkIndex);
+
+  for (let i = 0; i < dotsLength; i++) {
+    dots[i].addEventListener('click', () => {
+      allowShift = true;
+      shiftSlide(null, null, i + 1);
+    });
+  }
 };
 
 /* **************************************** */
