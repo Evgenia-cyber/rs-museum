@@ -1,17 +1,5 @@
 // from https://medium.com/@claudiaconceic/infinite-plain-javascript-slider-click-and-touch-events-540c8bd174f2
 
-/* Welcome slider
- **************************************** */
-const welcomeSlidesWrap = document.querySelector('.slides');
-const welcomeSlides = document.querySelectorAll('.slide');
-const welcomePrevBtn = document.querySelector('.to-prev-slide');
-const welcomeNextBtn = document.querySelector('.to-next-slide');
-const welcomeDots = document.querySelectorAll('.slide-dot');
-const welcomeCurrentSlideNumber = document.querySelector(
-  '.current-slide-number',
-);
-
-/* **************************************** */
 const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
   let posX1 = 0;
   let posX2 = 0;
@@ -20,7 +8,7 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
   let threshold = 50; // пороговая величина, чтобы определить было ли смещение(т.е. должен ли слайд двигаться влево, вправо или вообще не должен двигаться)
   const slidesLength = slides.length;
   const dotsLength = dots.length;
-  const slideSize = slides[0].offsetWidth; // 1000px = ширина слайдера
+  const slideWidth = slides[0].offsetWidth; // ширина одного слайда
   let index = 0;
   let allowShift = true;
 
@@ -85,9 +73,9 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
         posInitial = wrapper.offsetLeft;
       }
 
-      index = shiftBy;
       const difference = index - shiftBy;
-      wrapper.style.left = posInitial + difference * slideSize + 'px';
+      index = shiftBy;
+      wrapper.style.left = posInitial + difference * slideWidth + 'px';
     }
 
     // Чтобы подсвечивать буллет активного слайда и показывать номер активного слайда
@@ -128,12 +116,12 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
     wrapper.classList.remove('shifting');
 
     if (index === -1) {
-      wrapper.style.left = -(slidesLength * slideSize) + 'px';
+      wrapper.style.left = -(slidesLength * slideWidth) + 'px';
       index = slidesLength - 1;
     }
 
     if (index === slidesLength) {
-      wrapper.style.left = -(1 * slideSize) + 'px';
+      wrapper.style.left = -(1 * slideWidth) + 'px';
       index = 0;
     }
 
@@ -162,13 +150,3 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
     });
   }
 };
-
-/* **************************************** */
-slide(
-  welcomeSlidesWrap,
-  welcomeSlides,
-  welcomePrevBtn,
-  welcomeNextBtn,
-  welcomeDots,
-  welcomeCurrentSlideNumber,
-);
