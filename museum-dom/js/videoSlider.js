@@ -3,9 +3,11 @@ const videoSlides = document.querySelectorAll('.video-slide');
 const videoPrevBtn = document.querySelector('.video-slider-prev');
 const videoNextBtn = document.querySelector('.video-slider-next');
 const videoDots = document.querySelectorAll('.video-slider-dot');
+
+const mainVideo = document.querySelector('#main_video');
 /* ************************ */
 
-const slideVideo = (wrapper, slides, prevBtn, nextBtn, dots) => {
+const slideVideo = (wrapper, slides, prevBtn, nextBtn, dots, video) => {
   let posX1 = 0;
   let posX2 = 0;
   let posInitial = 0;
@@ -61,21 +63,12 @@ const slideVideo = (wrapper, slides, prevBtn, nextBtn, dots) => {
   };
 
   // Meтод вызывается событием transitionend.
-  // Слайдер должен быть бесконечным. Когда он отображает первый слайд, он должен позволять пользователю переходить к предыдущему, (клонированию) последнего слайда - вот почему мы клонировали первый и последний слайды.
-  // Но что произойдет, если пользователь захочет вернуться назад и увидеть предпоследний элемент?
-  // Следует ли нам клонировать и этот предмет?
-  // Не совсем.
-  // Мы обновим положение контейнера элементов, чтобы он переместился к реальному последнему элементу (а не к его клону), чтобы пользователь не заметил его:
-  // 1) удаляем класс CSS "shifting" - поэтому элемент не имеет перехода CSS (таким образом, мы можем перемещать элемент, не будучи заметными для пользователя),
-  // 2) перемещаем контейнер слайдов, чтобы показать настоящий слайд,
-  // 3) обновляем индекс
-  // 4) устанавливаем allowShift = true, что позволит пользователю снова взаимодействовать со слайдером
   // Обратите внимание, что мы вызываем этот метод при transitionend событии, чтобы убедиться, что он выполняется только после завершения перехода между двумя слайдами.
   const checkIndex = () => {
     wrapper.classList.remove('shifting');
 
     if (index === -1) {
-      wrapper.style.left = -((slidesLength+1) * slideWidth) + 'px';
+      wrapper.style.left = -((slidesLength + 1) * slideWidth) + 'px';
       index = slidesLength - 1;
     }
 
@@ -83,6 +76,10 @@ const slideVideo = (wrapper, slides, prevBtn, nextBtn, dots) => {
       wrapper.style.left = -(2 * slideWidth) + 'px';
       index = 0;
     }
+
+    // устанавливаем для видео постер и src, соответствующие активному слайду
+    video.src = `assets/video/video${index}.mp4`;
+    video.poster = `assets/video/poster${index}.jpg`;
 
     allowShift = true;
   };
@@ -108,4 +105,11 @@ const slideVideo = (wrapper, slides, prevBtn, nextBtn, dots) => {
 };
 
 /* ************************ */
-slideVideo(videoSlidesWrap, videoSlides, videoPrevBtn, videoNextBtn, videoDots);
+slideVideo(
+  videoSlidesWrap,
+  videoSlides,
+  videoPrevBtn,
+  videoNextBtn,
+  videoDots,
+  mainVideo,
+);
