@@ -559,10 +559,29 @@ button {
   background: url('assets/svg/not-fullscreen.svg') no-repeat;
 }
 
+.video-slider {
+  position: relative;
+  max-width: 100%;
+  max-height: 254px;
+  overflow: hidden;
+  padding: 50px 0;
+}
+
 .videos {
+  position: relative; /*обязательно, иначе не сдвинется влево*/
+  top: 0;
+  left: -1004px; /*452(ширина слайда) +50(правый padding) Так надо сдвинуть на 2слайда(т.к. в js прибавили в начало слайдов предпоследний и последний слайд)*/
+  width: 2510px; /* 502px * 5 slides*/
   display: flex;
-  justify-content: space-between;
-  padding: 37px 0;
+}
+
+.videos.shifting {
+  transition: left var(--transition-duration) ease-out;
+}
+
+.video-slide {
+  flex-shrink: 0;
+  padding-right: 50px;
 }
 
 .video-slider-controls {
@@ -587,7 +606,7 @@ button {
   background-color: var(--dark-red);
 }
 
-.video-slider-dot-active {
+.video-slider-dot.active {
   background-color: var(--visited-video-slider-dot);
 }
 

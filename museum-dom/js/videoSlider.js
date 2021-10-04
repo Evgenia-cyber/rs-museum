@@ -1,11 +1,15 @@
-// from https://medium.com/@claudiaconceic/infinite-plain-javascript-slider-click-and-touch-events-540c8bd174f2
+const videoSlidesWrap = document.querySelector('.videos');
+const videoSlides = document.querySelectorAll('.video-slide');
+const videoPrevBtn = document.querySelector('.video-slider-prev');
+const videoNextBtn = document.querySelector('.video-slider-next');
+const videoDots = document.querySelectorAll('.video-slider-dot');
+/* ************************ */
 
-const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
+const slideVideo = (wrapper, slides, prevBtn, nextBtn, dots) => {
   let posX1 = 0;
   let posX2 = 0;
   let posInitial = 0;
   let posFinal = 0;
-  let threshold = 50; // пороговая величина, чтобы определить было ли смещение(т.е. должен ли слайд двигаться влево, вправо или вообще не должен двигаться)
   const slidesLength = slides.length;
   const dotsLength = dots.length;
   const slideWidth = slides[0].offsetWidth; // ширина одного слайда
@@ -15,53 +19,19 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
   // клонируем первый слайд и добавляем его в конец слайдов, а затем клонируем последний и перемещаем его в начало нашего списка слайдов.
   // Цель этого - увидеть последний слайд, если мы скользим назад на первом слайде, и первый слайд, если мы скользим вперед на последнем слайде.
   const firstSlide = slides[0];
+  const secondSlide = slides[1];
+  const preLastSlide = slides[slidesLength - 2];
   const lastSlide = slides[slidesLength - 1];
   const cloneFirst = firstSlide.cloneNode(true);
+  const cloneSecond = secondSlide.cloneNode(true);
+  const clonePreLast = preLastSlide.cloneNode(true);
   const cloneLast = lastSlide.cloneNode(true);
   wrapper.appendChild(cloneFirst);
+  wrapper.appendChild(cloneSecond);
   wrapper.insertBefore(cloneLast, firstSlide);
+  wrapper.insertBefore(clonePreLast, cloneLast);
 
-  const dragStart = (e) => {
-    e = e || window.event;
-    e.preventDefault();
-    posInitial = wrapper.offsetLeft; //-1000px = ширина слайдера
-
-    posX1 = e.clientX;
-
-    // Событие вызывается при нажатии на указательное устройство (например, мышь или сенсорную панель) и наступает, в то время как указатель находится на элементе. Событие mouseup является противоположным mousedown.
-    document.addEventListener('mouseup', dragEnd);
-
-    // Событие вызывается элементом, когда указательное устройство (обычно мышь) перемещается и курсор находится внутри него.
-    document.addEventListener('mousemove', dragAction);
-  };
-
-  const dragAction = (e) => {
-    e = e || window.event;
-
-    posX2 = posX1 - e.clientX;
-    posX1 = e.clientX;
-    wrapper.style.left = wrapper.offsetLeft - posX2 + 'px';
-  };
-
-  const dragEnd = (e) => {
-    posFinal = wrapper.offsetLeft;
-
-    if (posFinal - posInitial < -threshold) {
-      shiftSlide(index + 1, 'drag'); // смещаем на 1 следующий слайд
-    } else if (posFinal - posInitial > threshold) {
-      shiftSlide(index - 1, 'drag'); // смещаем на 1 предыдущий слайд
-    } else {
-      wrapper.style.left = posInitial + 'px'; // не смещаем
-    }
-
-    // сбрасываем события onmouseup и onmousemove, когда пользователь завершает взаимодействие. Иначе бесконечное движение полосы картинок за движением мыши
-    //  document.onmouseup = null;
-    //  document.onmousemove = null;
-    document.removeEventListener('mouseup', dragEnd);
-    document.removeEventListener('mousemove', dragAction);
-  };
-
-  const shiftSlide = (shiftTo, action) => {
+  const shiftSlide = (shiftTo) => {
     wrapper.classList.add('shifting'); // добавляем css transition для плавного смещения изображений
 
     if (index >= 0 && index < dotsLength) {
@@ -69,33 +39,22 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
     }
 
     if (allowShift) {
-      if (!action) {
-        posInitial = wrapper.offsetLeft;
-      }
+      posInitial = wrapper.offsetLeft;
 
       const difference = index - shiftTo;
       index = shiftTo;
       wrapper.style.left = posInitial + difference * slideWidth + 'px';
     }
 
-    // Чтобы подсвечивать буллет активного слайда и показывать номер активного слайда
+    // Чтобы подсвечивать буллет активного слайда
     if (index >= 0 && index < dotsLength) {
       dots[index].classList.add('active');
-      if (currentSlideNumber) {
-        currentSlideNumber.textContent = `0${index + 1}`;
-      }
     }
     if (index < 0) {
       dots[dotsLength - 1].classList.add('active');
-      if (currentSlideNumber) {
-        currentSlideNumber.textContent = `0${dotsLength}`;
-      }
     }
     if (index >= dotsLength) {
       dots[0].classList.add('active');
-      if (currentSlideNumber) {
-        currentSlideNumber.textContent = '01';
-      }
     }
 
     allowShift = false;
@@ -116,21 +75,18 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
     wrapper.classList.remove('shifting');
 
     if (index === -1) {
-      wrapper.style.left = -(slidesLength * slideWidth) + 'px';
+      wrapper.style.left = -((slidesLength+1) * slideWidth) + 'px';
       index = slidesLength - 1;
     }
 
     if (index === slidesLength) {
-      wrapper.style.left = -(1 * slideWidth) + 'px';
+      wrapper.style.left = -(2 * slideWidth) + 'px';
       index = 0;
     }
 
     allowShift = true;
   };
   /* **************************************** */
-  // Mouse events - событие запускается в момент первоначального нажатия кнопки.
-  //   wrapper.onmousedown = dragStart;
-  wrapper.addEventListener('mousedown', dragStart);
 
   // Click events
   prevBtn.addEventListener('click', () => {
@@ -150,3 +106,6 @@ const slide = (wrapper, slides, prevBtn, nextBtn, dots, currentSlideNumber) => {
     });
   }
 };
+
+/* ************************ */
+slideVideo(videoSlidesWrap, videoSlides, videoPrevBtn, videoNextBtn, videoDots);
