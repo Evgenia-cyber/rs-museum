@@ -8,8 +8,19 @@ const fullscreenBtn = document.querySelector('#fullscreen');
 
 /* ********************* */
 
+const paintProgressBackground = (currentValueInPercent) => {
+  return `linear-gradient(to right, #710707 ${MIN_PERCENT}%, #710707 ${currentValueInPercent}%, #c4c4c4 ${currentValueInPercent}%, #c4c4c4 ${MAX_PERCENT}%)`;
+};
+
+/* ********************* */
+
 const togglePlay = () => {
-  if (video.paused || video.ended) {
+  if (video.paused) {
+    if (progressVideo.value === MAX_PERCENT.toString()) {
+      progressVideo.value = MIN_PERCENT.toString();
+      video.currentTime = 0;
+    }
+
     video.play();
     playBtn.classList.replace('play', 'pause');
     mainPlayBtn.style.display = 'none';
@@ -22,17 +33,58 @@ const togglePlay = () => {
 
 function updateProgressAndVideoOnRewind(event) {
   const value = this.value;
-  this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #c4c4c4 ${value}%, #c4c4c4 100%)`;
+  this.style.background = paintProgressBackground(value);
+  const videoCurrentTime = (value * video.duration) / MAX_PERCENT;
+  video.currentTime = videoCurrentTime;
 
-  video.pause();
-  video.currentTime = (value * video.duration) / 100;
-  video.play();
+  if (!video.paused) {
+    video.pause();
+    video.currentTime = videoCurrentTime;
+    video.play();
+  }
 }
 
 const updateProgressVideo = () => {
-  const percent = (video.currentTime / video.duration) * 100;
+  const percent = Math.round(
+    (video.currentTime / video.duration) * MAX_PERCENT,
+  );
   progressVideo.value = percent;
-  progressVideo.style.background = `linear-gradient(to right, #710707 0%, #710707 ${percent}%, #c4c4c4 ${percent}%, #c4c4c4 100%)`;
+  progressVideo.style.background = paintProgressBackground(percent);
+
+  if (percent === MAX_PERCENT) {
+    video.pause();
+    playBtn.classList.replace('pause', 'play');
+    mainPlayBtn.style.display = 'block';
+  }
+};
+
+const toggleVolume = () => {
+  if (video.muted) {
+    video.muted = false;
+    volumeBtn.classList.replace('mute', 'volume');
+    progressVolume.value = DEFAULT_VOLUME * MAX_PERCENT;
+    progressVolume.style.background = paintProgressBackground(
+      DEFAULT_VOLUME * MAX_PERCENT,
+    );
+  } else {
+    video.muted = true;
+    volumeBtn.classList.replace('volume', 'mute');
+    progressVolume.value = MIN_VOLUME;
+    progressVolume.style.background = paintProgressBackground(MIN_VOLUME);
+  }
+};
+
+const updateProgressAndVideoVolume = () => {
+  const value = progressVolume.value;
+
+  progressVolume.style.background = paintProgressBackground(value);
+
+  video.volume = value / MAX_PERCENT;
+  if (value === '0') {
+    volumeBtn.classList.replace('volume', 'mute');
+  } else {
+    volumeBtn.classList.replace('mute', 'volume');
+  }
 };
 
 /* ********************* */
@@ -47,7 +99,7 @@ video.addEventListener('timeupdate', updateProgressVideo);
 
 progressVideo.addEventListener('input', updateProgressAndVideoOnRewind);
 
-progressVolume.addEventListener('input', function () {
-  const value = this.value;
-  this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #c4c4c4 ${value}%, #c4c4c4 100%)`;
-});
+volumeBtn.addEventListener('click', toggleVolume);
+
+progressVolume.addEventListener('input', updateProgressAndVideoVolume);
+
