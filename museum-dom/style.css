@@ -489,8 +489,8 @@ button {
   background: linear-gradient(
     to right,
     var(--dark-red) 0%,
-    var(--dark-red) 50%,
-    var(--player-progress-2) 50%,
+    var(--dark-red) 0%,
+    var(--player-progress-2) 0%,
     var(--player-progress-2) 100%
   );
   height: 8px;
@@ -508,6 +508,13 @@ button {
 
 .progress-volume {
   width: 150px;
+  background: linear-gradient(
+    to right,
+    var(--dark-red) 0%,
+    var(--dark-red) 50%,
+    var(--player-progress-2) 50%,
+    var(--player-progress-2) 100%
+  );
 }
 
 .progress::-webkit-slider-thumb {
@@ -521,8 +528,11 @@ button {
 
 .main-play-icon,
 .play,
+.pause,
 .volume,
-.fullscreen {
+.mute,
+.fullscreen,
+.not-fullscreen {
   width: 40px;
   height: 35px;
   transition: filter var(--transition-duration);
@@ -530,8 +540,11 @@ button {
 
 .main-play-icon:hover,
 .play:hover,
+.pause:hover,
 .volume:hover,
-.fullscreen:hover {
+.mute:hover,
+.fullscreen:hover,
+.not-fullscreen:hover {
   cursor: pointer;
   filter: invert(62%) sepia(0%) saturate(14%) hue-rotate(137deg) brightness(99%)
     contrast(88%);
@@ -551,12 +564,24 @@ button {
   background: url('assets/svg/play.svg') no-repeat;
 }
 
+.pause {
+  background: url('assets/svg/pause.svg') no-repeat;
+}
+
 .volume {
   background: url('assets/svg/volume.svg') no-repeat;
 }
 
-.fullscreen {
+.mute {
+  background: url('assets/svg/mute.svg') no-repeat;
+}
+
+.not-fullscreen {
   background: url('assets/svg/not-fullscreen.svg') no-repeat;
+}
+
+.fullscreen {
+  background: url('assets/svg/fullscreen.svg') no-repeat;
 }
 
 .video-slider {

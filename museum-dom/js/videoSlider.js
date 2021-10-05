@@ -4,7 +4,7 @@ const videoPrevBtn = document.querySelector('.video-slider-prev');
 const videoNextBtn = document.querySelector('.video-slider-next');
 const videoDots = document.querySelectorAll('.video-slider-dot');
 
-const mainVideo = document.querySelector('#main_video');
+const mainVideo = document.querySelector('.video');
 /* ************************ */
 
 const slideVideo = (wrapper, slides, prevBtn, nextBtn, dots, video) => {

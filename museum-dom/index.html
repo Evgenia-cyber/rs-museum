@@ -233,37 +233,38 @@
               enjoy masterpieces such as Mona Lisa or Hammurabi's Code
             </p>
           </div>
-          <div class="video-wrapper">
-            <video
-              id="main_video"
-              width="1440"
-              height="650"
-              class="video"
-              src="assets/video/video0.mp4"
-              poster="assets/video/poster0.jpg"
-            ></video>
-            <button class="main-play-icon"></button>
-          </div>
-          <div class="controllers">
-            <button class="play"></button>
-            <input
-              class="progress progress-video"
-              type="range"
-              value="50"
-              min="0"
-              max="100"
-              step="1"
-            />
-            <button class="volume"></button>
-            <input
-              class="progress progress-volume"
-              type="range"
-              value="50"
-              min="0"
-              max="100"
-              step="1"
-            />
-            <button class="fullscreen"></button>
+          <div class="player">
+            <div class="video-wrapper">
+              <video
+                class="video"
+                width="1440"
+                height="650"
+                src="assets/video/video0.mp4"
+                poster="assets/video/poster0.jpg"
+              ></video>
+              <button id="main-play" class="main-play-icon"></button>
+            </div>
+            <div class="controllers">
+              <button id="play" class="play"></button>
+              <input
+                class="progress progress-video"
+                type="range"
+                value="0"
+                min="0"
+                max="100"
+                step="1"
+              />
+              <button id="volume" class="volume"></button>
+              <input
+                class="progress progress-volume"
+                type="range"
+                value="50"
+                min="0"
+                max="100"
+                step="1"
+              />
+              <button id="fullscreen" class="not-fullscreen"></button>
+            </div>
           </div>
           <div class="video-slider">
             <div class="videos">
@@ -623,7 +624,7 @@
     </footer>
     <!--/footer-->
 
-    <script src="js/progress.js"></script>
+    <script src="js/player.js"></script>
     <script src="js/gallery.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/welcomeSlider.js"></script>
