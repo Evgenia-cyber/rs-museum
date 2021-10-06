@@ -157,6 +157,24 @@ button {
   color: var(--font-gold);
 }
 
+/* *** scroll to top button *** */
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 75px;
+  height: 75px;
+  background: url('assets/svg/to-top-btn.svg') no-repeat;
+  z-index: 1000;
+  transition: filter var(--transition-duration);
+}
+
+.scroll-to-top-btn:hover {
+  cursor: pointer;
+  filter: invert(100%) sepia(0%) saturate(1%) hue-rotate(57deg) brightness(102%) contrast(102%);
+} 
+
 /* *** welcome section *** */
 
 .welcome-section {
