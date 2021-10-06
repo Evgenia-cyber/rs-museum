@@ -1,3 +1,4 @@
+const player = document.querySelector('.player');
 const video = document.querySelector('.video');
 const progressVideo = document.querySelector('.progress-video');
 const progressVolume = document.querySelector('.progress-volume');
@@ -87,6 +88,24 @@ const updateProgressAndVideoVolume = () => {
   }
 };
 
+const toggleFullscreen = () => {
+  if (fullscreenBtn.classList.contains('fullscreen')) {
+      fullscreenBtn.classList.replace('fullscreen', 'not-fullscreen');
+  } else {
+    fullscreenBtn.classList.replace('not-fullscreen', 'fullscreen');
+  }
+};
+
+const toggleIsFullscreen = () => {
+  if (fullscreenBtn.classList.contains('fullscreen')) {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    }
+  } else {
+    player.requestFullscreen();
+  }
+};
+
 /* ********************* */
 
 playBtn.addEventListener('click', togglePlay);
@@ -103,3 +122,6 @@ volumeBtn.addEventListener('click', toggleVolume);
 
 progressVolume.addEventListener('input', updateProgressAndVideoVolume);
 
+fullscreenBtn.addEventListener('click', toggleIsFullscreen);
+
+player.addEventListener('fullscreenchange', toggleFullscreen);
