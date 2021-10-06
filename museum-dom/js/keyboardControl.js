@@ -1,9 +1,10 @@
 /* *********управление плеером с клавиатуры********* */
 
 document.addEventListener('keyup', (event) => {
-
   // Пробел — пауза / play
   if (event.code === 'Space') {
+    event.preventDefault();
+    event.stopPropagation ();
     togglePlay();
   }
 
