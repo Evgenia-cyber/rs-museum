@@ -6,6 +6,7 @@ const mainPlayBtn = document.querySelector('#main-play');
 const playBtn = document.querySelector('#play');
 const volumeBtn = document.querySelector('#volume');
 const fullscreenBtn = document.querySelector('#fullscreen');
+const tooltip = document.querySelector('.tooltip');
 
 /* ********************* */
 
@@ -90,7 +91,7 @@ const updateProgressAndVideoVolume = () => {
 
 const toggleFullscreen = () => {
   if (fullscreenBtn.classList.contains('fullscreen')) {
-      fullscreenBtn.classList.replace('fullscreen', 'not-fullscreen');
+    fullscreenBtn.classList.replace('fullscreen', 'not-fullscreen');
   } else {
     fullscreenBtn.classList.replace('not-fullscreen', 'fullscreen');
   }
@@ -104,6 +105,34 @@ const toggleIsFullscreen = () => {
   } else {
     player.requestFullscreen();
   }
+};
+
+const changeVideoRate = (action) => {
+  // 0.25 0.5 0.75 1 1.25 1.5 2.75 2.0
+  let currentRate = video.playbackRate;
+
+  if (action === FASTER) {
+    if (currentRate === MAX_RATE) {
+      video.playbackRate = MAX_RATE;
+    } else {
+      currentRate += RATE_STEP;
+      video.playbackRate = currentRate;
+    }
+  } else {
+    if (currentRate === MIN_RATE) {
+      video.playbackRate = MIN_RATE;
+    } else {
+      currentRate -= RATE_STEP;
+      video.playbackRate = currentRate;
+    }
+  }
+
+  tooltip.textContent = currentRate.toFixed(2);
+  tooltip.style.display = 'block';
+  setTimeout(() => {
+    tooltip.style.display = 'none';
+  }, ONE_SECOND_IN_MILLISECONDS);
+  // console.log(currentRate);
 };
 
 /* ********************* */

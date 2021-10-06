@@ -588,6 +588,18 @@ button {
   position: relative;
 }
 
+.tooltip {
+  display: none;
+  position: absolute;
+  top: 20%;
+  left: calc((100% - 74px) / 2);
+  padding: 0 16px;
+  color: var(--white);
+  background-color: var(--bg-dark);
+  z-index: 1;
+  border: 1px solid var(--font-gold);
+}
+
 :-webkit-full-screen .controllers {
   position: absolute;
   left: 0;
