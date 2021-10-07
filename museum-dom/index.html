@@ -12,6 +12,13 @@
       href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:wght@100;300;500;700&display=swap"
       rel="stylesheet"
     />
+    <!-- ******** -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <!-- ******** -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -215,27 +222,26 @@
               had been damaged in any way, but because it looked different.
             </p>
           </div>
-          <div class='compare'>
+          <div class="compare">
             <div class="compare-img">
               <img
-              src="assets/img/explore-slider/after.jpg"
-              alt="Las Meninas after restoration"
-              width="720"
-              height="700"
-            />
+                src="assets/img/explore-slider/after.jpg"
+                alt="Las Meninas after restoration"
+                width="720"
+                height="700"
+              />
             </div>
-            <div class='compare-slider-thumb'></div>
+            <div class="compare-slider-thumb"></div>
             <div class="compare-img compare-overlay">
               <img
-              src="assets/img/explore-slider/before.jpg"
-              alt="Las Meninas before restoration"
-              width="720"
-              height="700"
-            />
+                src="assets/img/explore-slider/before.jpg"
+                alt="Las Meninas before restoration"
+                width="720"
+                height="700"
+              />
             </div>
-  
           </div>
-        </di>
+        </div>
       </section>
       <!--/section explore-->
       <!--section video-->
@@ -248,7 +254,7 @@
               enjoy masterpieces such as Mona Lisa or Hammurabi's Code
             </p>
           </div>
-          <div class="player" tabindex="-1">
+          <div class="player">
             <span class="tooltip"></span>
             <div class="video-wrapper">
               <video
@@ -566,7 +572,7 @@
                 ><p>mail: info@louvre.fr</p></a
               >
             </div>
-            <img src="assets/img/map.png" alt="map" width="960" height="620" />
+            <div class="map-container"><div id="map" class="map"></div></div>
           </div>
         </div>
       </section>
@@ -640,6 +646,7 @@
     </footer>
     <!--/footer-->
 
+    <script src="js/secretData.js"></script>
     <script src="js/constants.js"></script>
     <script src="js/player.js"></script>
     <script src="js/gallery.js"></script>
@@ -649,6 +656,7 @@
     <script src="js/keyboardControl.js"></script>
     <script src="js/scrollToTop.js"></script>
     <script src="js/compareImagesSlider.js"></script>
+    <script src="js/map.js"></script>
     <!-- <script src="js/task.js"></script> -->
   </body>
 </html>

@@ -995,6 +995,18 @@ button {
   color: var(--font-gold);
 }
 
+.map-container {
+  max-width: 960px;
+  max-height: 620px;
+  width: 960px;
+  height: 620px;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
 /* *** footer *** */
 .footer-container {
   display: flex;

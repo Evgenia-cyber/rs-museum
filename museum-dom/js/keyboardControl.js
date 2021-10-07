@@ -28,5 +28,4 @@ document.addEventListener('keyup', (event) => {
     changeVideoRate(SLOWER);
   }
 
-  player.focus();
 });
