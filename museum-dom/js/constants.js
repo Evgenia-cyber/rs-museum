@@ -14,11 +14,11 @@ const SLOWER = 'slower';
 
 const ONE_SECOND_IN_MILLISECONDS = 1000;
 
-const TICKET_TYPES = [
-  'Permanent exhibition',
-  'Temporary exhibition',
-  'Combined Admission',
-];
+// const TICKET_TYPES = [
+//   'Permanent exhibition',
+//   'Temporary exhibition',
+//   'Combined Admission',
+// ];
 
 const BASIC_TICKETS_PRICE = [20, 25, 40];
 const SENIOR_TICKETS_PRICE = [10, 12.5, 20];

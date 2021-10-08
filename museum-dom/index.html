@@ -476,17 +476,17 @@
                 </h4>
                 <label class="types-container"
                   >Permanent exhibition
-                  <input type="radio" checked="checked" name="ticket-type" />
+                  <input type="radio" checked="checked" name="ticket-type" value="0"/>
                   <span class="checkmark"></span>
                 </label>
                 <label class="types-container"
                   >Temporary exhibition
-                  <input type="radio" name="ticket-type" />
+                  <input type="radio" name="ticket-type" value="1"/>
                   <span class="checkmark"></span>
                 </label>
                 <label class="types-container"
                   >Combined Admission
-                  <input type="radio" name="ticket-type" />
+                  <input type="radio" name="ticket-type" value="2"/>
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -516,6 +516,7 @@
                     –
                   </button>
                   <input
+                  id="number-of-senior-tickets"
                     class="tickets-count"
                     type="number"
                     min="0"
