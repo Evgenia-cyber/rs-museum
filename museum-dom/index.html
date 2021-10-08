@@ -476,17 +476,17 @@
                 </h4>
                 <label class="types-container"
                   >Permanent exhibition
-                  <input type="radio" checked="checked" name="radio" />
+                  <input type="radio" checked="checked" name="ticket-type" />
                   <span class="checkmark"></span>
                 </label>
                 <label class="types-container"
                   >Temporary exhibition
-                  <input type="radio" name="radio" />
+                  <input type="radio" name="ticket-type" />
                   <span class="checkmark"></span>
                 </label>
                 <label class="types-container"
                   >Combined Admission
-                  <input type="radio" name="radio" />
+                  <input type="radio" name="ticket-type" />
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -494,36 +494,25 @@
                 <h4 class="subtitle-roboto amount-subtitle">Amount</h4>
                 <p class="tickets-age">Basic 18+</p>
                 <div class="tickets-count-wrapper">
-                  <button
-                    class="tickets-btn"
-                    type="button"
-                    onclick="this.nextElementSibling.stepDown()"
-                  >
+                  <button class="tickets-btn decrease-btn" type="button">
                     –
                   </button>
                   <input
+                    id="number-of-basic-tickets"
                     class="tickets-count"
                     type="number"
                     min="0"
                     max="20"
-                    value="1"
+                    value="0"
                     readonly="readonly"
                   />
-                  <button
-                    class="tickets-btn"
-                    type="button"
-                    onclick="this.previousElementSibling.stepUp()"
-                  >
+                  <button class="tickets-btn increase-btn" type="button">
                     +
                   </button>
                 </div>
                 <p class="tickets-age">Senior 65+</p>
                 <div class="tickets-count-wrapper tickets-count-wrapper-last">
-                  <button
-                    class="tickets-btn"
-                    type="button"
-                    onclick="this.nextElementSibling.stepDown()"
-                  >
+                  <button class="tickets-btn decrease-btn" type="button">
                     –
                   </button>
                   <input
@@ -531,19 +520,15 @@
                     type="number"
                     min="0"
                     max="20"
-                    value="1"
+                    value="0"
                     readonly="readonly"
                   />
-                  <button
-                    class="tickets-btn"
-                    type="button"
-                    onclick="this.previousElementSibling.stepUp()"
-                  >
+                  <button class="tickets-btn increase-btn" type="button">
                     +
                   </button>
                 </div>
                 <h4 class="subtitle-roboto tickets-subtitle-total">
-                  Total €220
+                  Total €<span id="total-price">0</span>
                 </h4>
                 <button class="buy-btn">Buy Now</button>
               </div>
@@ -656,7 +641,8 @@
     <script src="js/keyboardControl.js"></script>
     <script src="js/scrollToTop.js"></script>
     <script src="js/compareImagesSlider.js"></script>
-    <script src="js/map.js"></script>
+    <script src="js/ticketSalesCalculator.js"></script>
+    <!-- <script src="js/map.js"></script> -->
     <!-- <script src="js/task.js"></script> -->
   </body>
 </html>
