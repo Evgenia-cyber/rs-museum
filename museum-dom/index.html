@@ -371,94 +371,133 @@
       </section>
       <!--/section gallery-->
       <!--section tickets-->
-      <section class="" id="tickets">
+      <section class="tickets-section" id="tickets">
         <!--buy tickets form-->
-        <!-- <div class="form-overlay">
-          <div class="container">
-            <div class="form-left">
-              <h2>Booking tickets</h2>
-              <h5 class="underlined-title">Tour to Louvre</h5>
-              <div class="form-date-time">
-                <label for="date">Date<input type="date" id="date" /></label>
-                <label for="time">Time<input type="time" id="time" /></label>
-              </div>
-              <label for="name">Name<input type="text" id="name" /></label>
-              <label for="email">Email<input type="email" id="email" /></label>
-              <label for="tel">Phone<input type="tel" id="tel" /></label>
-              <label for="ticket-type"
-                >Ticket Type
-                <select id="ticket-type">
-                  <option value="1">Permanent exhibition</option>
-                  <option value="2">Temporary exhibition</option>
-                  <option value="3">Combined Admission</option>
-                </select></label
-              >
-              <div class="entry-ticket">
-                <h3 class="underlined-title">Entry Ticket</h3>
-                <div class="entry-ticket-item">
-                  <span>Basic 18+ (20 &#128;)</span>
+        <div class="popup-overlay">
+          <div class="container popup-overlay-container">
+            <form class="popup" action="#">
+              <button class="close-popup-btn"></button>
+              <div class="popup-ticket-inputs">
+                <h2>Booking tickets</h2>
+                <h4>Tour to Louvre</h4>
+                <div class="popup-data-inputs">
+                  <input
+                    class="date"
+                    type="date"
+                    onchange="this.classList.toggle('has-value', this.value)"
+                    placeholder="Date"
+                  />
+                  <input
+                    class="time"
+                    type="time"
+                    onchange="this.classList.toggle('has-value', this.value)"
+                    placeholder="Time"
+                  />
+                  <input class="name" placeholder="Name" />
+                  <input class="email" placeholder="E-mail" type="email" />
+                  <input placeholder="Phone" type="tel" />
                 </div>
-                <div class="entry-ticket-item">
-                  <span>Senior 65+ (10 &#128;)</span>
+                <div class="select-wrapper">
+                  <label for="ticket-type"
+                    >Ticket Type
+                    <select id="ticket-type">
+                      <option value="0" selected>Permanent exhibition</option>
+                      <option value="1">Temporary exhibition</option>
+                      <option value="2">Combined Admission</option>
+                    </select></label
+                  >
+                </div>
+                <div class="popup-booking-entry">
+                  <h4>Entry Ticket</h4>
+                  <div class="amount">
+                    <div class="tickets-wrapper popup-tickets-wrapper">
+                      <p>Basic 18+ (<span class="cost-basic">0</span> €)</p>
+                      <div class="tickets-count-wrapper">
+                        <button class="tickets-btn decrease-btn" type="button">
+                          –
+                        </button>
+                        <input
+                          class="tickets-count number-of-basic-tickets"
+                          type="number"
+                          min="0"
+                          max="20"
+                          value="0"
+                          readonly="readonly"
+                        />
+                        <button class="tickets-btn increase-btn" type="button">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                    <div class="tickets-wrapper popup-tickets-wrapper">
+                      <p>Senior 65+ (<span class="cost-senior">0</span> €)</p>
+                      <div
+                        class="tickets-count-wrapper tickets-count-wrapper-last"
+                      >
+                        <button class="tickets-btn decrease-btn" type="button">
+                          –
+                        </button>
+                        <input
+                          class="tickets-count number-of-senior-tickets"
+                          type="number"
+                          min="0"
+                          max="20"
+                          value="0"
+                          readonly="readonly"
+                        />
+                        <button class="tickets-btn increase-btn" type="button">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="form-right">
-              <div class="ticket-data">
-                <div class="ticket-data-desc">
-                  <h4>Overview</h4>
-                  <h5>Tour to Louvre</h5>
-                  <p class="ticket-data-date"></p>
-                  <p class="ticket-data-time"></p>
-                  <p class="ticket-data-type"></p>
-                </div>
-                <img
-                  class="ticket-data-img"
-                  src="assets/img/ticket-buy-img.jpg"
-                  alt="Louvre"
-                  width="150"
-                  height="120"
-                />
-              </div>
+              <div class="popup-ticket-info">
+                <h2>Overview</h2>
+                <h4>Tour to Louvre</h4>
+                <div class="info-date">Friday, August 19</div>
+                <div class="info-time">16 : 30</div>
+                <div class="info-ticket-type">Temporary exhibition</div>
 
-              <div class="single-price">
-                <span class="single-price-count">0</span>
-                <span class="single-price-desc">Basic (20 &#128;)</span>
-                <span class="single-price-price">0 &#128;</span>
+                <div class="tickets-count-wrapp">
+                  <div class="tickets-count-wrapp-left">
+                    <input
+                      class="tickets-count number-of-basic-tickets"
+                      type="number"
+                      min="0"
+                      max="20"
+                      value="0"
+                      readonly="readonly"
+                    />
+                    <p>Basic 18+ (<span class="cost-basic">0</span> €)</p>
+                  </div>
+
+                  <p><span class="total-cost-basic">0</span> €</p>
+                </div>
+
+                <div class="tickets-count-wrapp">
+                  <div class="tickets-count-wrapp-left">
+                    <input
+                      class="tickets-count number-of-senior-tickets"
+                      type="number"
+                      min="0"
+                      max="20"
+                      value="0"
+                      readonly="readonly"
+                    />
+                    <p>Senior 65+ (<span class="cost-senior">0</span> €)</p>
+                  </div>
+                  <p><span class="total-cost-senior">0</span> €</p>
+                </div>
+                <h4 class="subtitle-roboto tickets-subtitle-total">
+                  Total <span class="total-price">0</span> €
+                </h4>
+                <button class="buy-btn">Book</button>
               </div>
-              <div class="single-price">
-                <span class="single-price-count">0</span>
-                <span class="single-price-desc">Senior (10 &#128;)</span>
-                <span class="single-price-price">0 &#128;</span>
-              </div>
-              <div class="total-price">
-                <span>Total:</span>
-                <span>0 &#128;</span>
-              </div>
-              <div class="pay-card-front">
-                <label for="card-number">
-                  <input type="text" id="card-number" />
-                </label>
-                <label for="card-month">
-                  <input type="number" id="card-month" />
-                </label>
-                <label for="card-year">
-                  <input type="number" id="card-year" />
-                </label>
-                <label for="card-name">
-                  <input type="text" id="card-name" />
-                </label>
-              </div>
-              <div class="pay-card-back">
-                <label for="card-cvc">
-                  <input type="text" id="card-cvc" />
-                </label>
-                <p>The last 3 or 4 digits on back of the card</p>
-              </div>
-              <button>Book</button>
-            </div>
+            </form>
           </div>
-        </div> -->
+        </div>
         <!--/buy tickets form-->
         <div class="container">
           <h2 class="section-title underlined-title">Buy tickets</h2>
@@ -476,17 +515,22 @@
                 </h4>
                 <label class="types-container"
                   >Permanent exhibition
-                  <input type="radio" checked="checked" name="ticket-type" value="0"/>
+                  <input
+                    type="radio"
+                    checked="checked"
+                    name="ticket-type"
+                    value="0"
+                  />
                   <span class="checkmark"></span>
                 </label>
                 <label class="types-container"
                   >Temporary exhibition
-                  <input type="radio" name="ticket-type" value="1"/>
+                  <input type="radio" name="ticket-type" value="1" />
                   <span class="checkmark"></span>
                 </label>
                 <label class="types-container"
                   >Combined Admission
-                  <input type="radio" name="ticket-type" value="2"/>
+                  <input type="radio" name="ticket-type" value="2" />
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -498,8 +542,7 @@
                     –
                   </button>
                   <input
-                    id="number-of-basic-tickets"
-                    class="tickets-count"
+                    class="tickets-count number-of-basic-tickets"
                     type="number"
                     min="0"
                     max="20"
@@ -516,8 +559,7 @@
                     –
                   </button>
                   <input
-                  id="number-of-senior-tickets"
-                    class="tickets-count"
+                    class="tickets-count number-of-senior-tickets"
                     type="number"
                     min="0"
                     max="20"
@@ -529,9 +571,9 @@
                   </button>
                 </div>
                 <h4 class="subtitle-roboto tickets-subtitle-total">
-                  Total €<span id="total-price">0</span>
+                  Total €<span class="total-price">0</span>
                 </h4>
-                <button class="buy-btn">Buy Now</button>
+                <button id="buy-btn" class="buy-btn">Buy Now</button>
               </div>
             </div>
           </div>
@@ -642,6 +684,7 @@
     <script src="js/keyboardControl.js"></script>
     <script src="js/scrollToTop.js"></script>
     <script src="js/compareImagesSlider.js"></script>
+    <script src="js/ticket-form.js"></script>
     <script src="js/ticketSalesCalculator.js"></script>
     <!-- <script src="js/map.js"></script> -->
     <!-- <script src="js/task.js"></script> -->

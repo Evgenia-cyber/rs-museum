@@ -166,7 +166,7 @@ button {
   width: 75px;
   height: 75px;
   background: url('assets/svg/to-top-btn.svg') no-repeat;
-  z-index: 1000;
+  z-index: 2;
   transition: filter var(--transition-duration);
 }
 
@@ -819,6 +819,111 @@ button {
 }
 
 /* *** buy tickets form *** */
+.tickets-section {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.popup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100vw;
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--pay-card-back-color);
+  z-index: 2;
+  transform: translateX(200%);
+  transition: transform 1s;
+}
+
+.popup-overlay:hover {
+  cursor: pointer;
+}
+
+.popup-overlay.active {
+  transform: translateX(0);
+  transition: transform 0.6s;
+}
+
+.popup-overlay-container {
+  max-width: 1200px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 110px;
+  margin-bottom: 110px;
+}
+
+.popup {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: var(--white);
+  border: 2px solid var(--font-gold);
+  cursor: default;
+}
+
+.close-popup-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+  background: url('assets/svg/close.svg') no-repeat;
+  transition: filter var(--transition-duration);
+}
+
+.close-popup-btn:hover {
+  cursor: pointer;
+  filter: var(--gold-filter);
+}
+
+.popup-ticket-inputs,
+.popup-ticket-info {
+  flex-basis: 40%;
+}
+
+.popup-data-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-data-inputs input {
+  margin-bottom: 20px;
+}
+
+div.popup-tickets-wrapper {
+  padding-top: 12px;
+}
+
+.tickets-count-wrapp {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tickets-count-wrapp-left {
+  display: flex;
+}
+
+div.info-date,
+div.info-time,
+div.info-ticket-type {
+  padding-left: 25px;
+  background-position: left center;
+}
+
+.info-date {
+  background: url('assets/svg/date.svg') no-repeat;
+}
+
+.info-time {
+  background: url('assets/svg/time.svg') no-repeat;
+}
+
+.info-ticket-type {
+  background: url('assets/svg/ticket-type.svg') no-repeat;
+}
 
 /* *** tickets section *** */
 .tickets-wrapper,

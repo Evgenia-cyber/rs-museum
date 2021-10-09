@@ -3,55 +3,142 @@ const ticketTypesInputs = document.querySelectorAll(
 );
 const decreaseButtons = document.querySelectorAll('.decrease-btn');
 const increaseButtons = document.querySelectorAll('.increase-btn');
-const numberOfBasicTicketsInput = document.querySelector(
-  '#number-of-basic-tickets',
+const numberOfBasicTicketsInputs = document.querySelectorAll(
+  '.number-of-basic-tickets',
 );
-const numberOfSeniorTicketsInput = document.querySelector(
-  '#number-of-senior-tickets',
+const numberOfSeniorTicketsInputs = document.querySelectorAll(
+  '.number-of-senior-tickets',
 );
-const totalPrice = document.querySelector('#total-price');
+const totalPriceSpans = document.querySelectorAll('.total-price');
+const basicTotalPriceSpan = document.querySelector('.total-cost-basic');
+const seniorTotalPriceSpan = document.querySelector('.total-cost-senior');
+const costOneBasicSpans = document.querySelectorAll('.cost-basic');
+const costOneSeniorSpans = document.querySelectorAll('.cost-senior');
+const infoTicketTypeDiv = document.querySelector('.info-ticket-type');
+const select = document.querySelector('#ticket-type');
+const selectOptions = Array.from(select.getElementsByTagName('option'));
 
 /* ****************** */
+const setSelectedOption = (ticketType) => {
+  selectOptions.forEach((option) => {
+    if (option.value === ticketType) {
+      option.selected = true;
+    }
+  });
+};
+
+const setCheckedInput = (index) => {
+  ticketTypesInputs[index].checked = true;
+};
+
+const setCostOneForBasicAndSenior = (ticketType) => {
+  costOneBasicSpans.forEach(
+    (span) => (span.textContent = BASIC_TICKETS_PRICE[ticketType]),
+  );
+
+  costOneSeniorSpans.forEach(
+    (span) => (span.textContent = SENIOR_TICKETS_PRICE[ticketType]),
+  );
+};
+
 const setDataFromLocalStorage = () => {
   if (window.localStorage.getItem('museum') !== null) {
     const museumData = JSON.parse(window.localStorage.getItem('museum'));
 
-    console.log('museumData', museumData);
-    numberOfBasicTicketsInput.value = museumData.numberOfBasicTickets;
-    numberOfSeniorTicketsInput.value = museumData.numberOfSeniorTickets;
-    ticketTypesInputs[museumData.selectedTicketType].checked = true;
-    totalPrice.textContent = museumData.totalPrice;
+    const index = museumData.selectedTicketType;
+
+    numberOfBasicTicketsInputs.forEach(
+      (input) => (input.value = museumData.numberOfBasicTickets),
+    );
+
+    numberOfSeniorTicketsInputs.forEach(
+      (input) => (input.value = museumData.numberOfSeniorTickets),
+    );
+
+    setCheckedInput(index);
+
+    totalPriceSpans.forEach(
+      (span) => (span.textContent = museumData.totalPrice),
+    );
+
+    basicTotalPriceSpan.textContent = museumData.basicTotalPrice;
+
+    seniorTotalPriceSpan.textContent = museumData.seniorTotalPrice;
+
+    setCostOneForBasicAndSenior(index);
+
+    infoTicketTypeDiv.textContent = TICKET_TYPES[index];
+
+    setSelectedOption(index);
   }
 };
 
 const saveDataInLocalStorage = () => {
   const museumData = {
-    numberOfBasicTickets: numberOfBasicTicketsInput.value,
-    numberOfSeniorTickets: numberOfSeniorTicketsInput.value,
+    numberOfBasicTickets: numberOfBasicTicketsInputs[0].value,
+    numberOfSeniorTickets: numberOfSeniorTicketsInputs[0].value,
     selectedTicketType: document.querySelector(
       'input[name="ticket-type"]:checked',
     ).value,
-    totalPrice: totalPrice.textContent,
+    totalPrice: totalPriceSpans[0].textContent,
+    basicTotalPrice: basicTotalPriceSpan.textContent,
+    seniorTotalPrice: seniorTotalPriceSpan.textContent,
   };
   window.localStorage.setItem('museum', JSON.stringify(museumData));
 };
 
 const calculateTotalPrice = (ticketType) => {
   const index = Number(ticketType);
-  totalPrice.textContent =
-    numberOfBasicTicketsInput.value * BASIC_TICKETS_PRICE[index] +
-    numberOfSeniorTicketsInput.value * SENIOR_TICKETS_PRICE[index];
+
+  const newBasicTotalPrice =
+    numberOfBasicTicketsInputs[0].value * BASIC_TICKETS_PRICE[index];
+  basicTotalPriceSpan.textContent = newBasicTotalPrice.toFixed(2);
+
+  const newSeniorTotalPrice =
+    numberOfSeniorTicketsInputs[0].value * SENIOR_TICKETS_PRICE[index];
+  seniorTotalPriceSpan.textContent = newSeniorTotalPrice.toFixed(2);
+
+  const newTotalPrice = (newBasicTotalPrice + newSeniorTotalPrice).toFixed(2);
+  totalPriceSpans.forEach((span) => (span.textContent = newTotalPrice));
 };
 
-const changeTicketType = () => {
-  calculateTotalPrice(
-    document.querySelector('input[name="ticket-type"]:checked').value,
-  );
+const changeTicketType = (ticketType) => {
+  calculateTotalPrice(ticketType);
+
+  infoTicketTypeDiv.textContent = TICKET_TYPES[ticketType];
+
+  setCostOneForBasicAndSenior(ticketType);
+
   saveDataInLocalStorage();
 };
 
+const changeTicketTypeFromInput = () => {
+  const value = document.querySelector(
+    'input[name="ticket-type"]:checked',
+  ).value;
+
+  setSelectedOption(value);
+
+  changeTicketType(value);
+};
+
+const changeTicketTypeFromSelect = () => {
+  const value = select.options[select.selectedIndex].value;
+
+  setCheckedInput(value);
+
+  changeTicketType(value);
+};
+
 function increaseNumberOfTIckets() {
-  this.previousElementSibling.stepUp();
+  const nearestInput = this.previousElementSibling;
+
+  if (nearestInput.classList.contains('number-of-basic-tickets')) {
+    numberOfBasicTicketsInputs.forEach((input) => input.stepUp());
+  } else {
+    numberOfSeniorTicketsInputs.forEach((input) => input.stepUp());
+  }
+
   calculateTotalPrice(
     document.querySelector('input[name="ticket-type"]:checked').value,
   );
@@ -59,7 +146,14 @@ function increaseNumberOfTIckets() {
 }
 
 function decreaseNumberOfTIckets() {
-  this.nextElementSibling.stepDown();
+  const nearestInput = this.nextElementSibling;
+
+  if (nearestInput.classList.contains('number-of-basic-tickets')) {
+    numberOfBasicTicketsInputs.forEach((input) => input.stepDown());
+  } else {
+    numberOfSeniorTicketsInputs.forEach((input) => input.stepDown());
+  }
+
   calculateTotalPrice(
     document.querySelector('input[name="ticket-type"]:checked').value,
   );
@@ -68,8 +162,10 @@ function decreaseNumberOfTIckets() {
 
 /* ****************** */
 ticketTypesInputs.forEach((input) =>
-  input.addEventListener('change', changeTicketType),
+  input.addEventListener('change', changeTicketTypeFromInput),
 );
+
+select.addEventListener('change', changeTicketTypeFromSelect);
 
 increaseButtons.forEach((button) =>
   button.addEventListener('click', increaseNumberOfTIckets),
