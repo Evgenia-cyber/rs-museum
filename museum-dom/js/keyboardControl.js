@@ -1,31 +1,36 @@
 /* *********управление плеером с клавиатуры********* */
 
 document.addEventListener('keyup', (event) => {
+  const isFormActive = popup.classList.contains('active');
+
   // Пробел — пауза / play
-  if (event.code === 'Space') {
+  if (!isFormActive && event.code === 'Space') {
     event.preventDefault();
-    event.stopPropagation ();
+    event.stopPropagation();
     togglePlay();
   }
 
   // Клавиша M (англ) — отключение/включение звука
-  if (event.code === 'KeyM') {
+  if (!isFormActive && event.code === 'KeyM') {
     toggleVolume();
   }
 
   // Клавиша F — включение/выключение полноэкранного режима
-  if (event.code === 'KeyF') {
+  if (!isFormActive && event.code === 'KeyF') {
     toggleIsFullscreen();
   }
 
   // Клавиши SHIFT+, (англ) — ускорение воспроизведения ролика
-  if (event.code === 'Comma' && event.shiftKey) {
+  if (!isFormActive && event.code === 'Comma' && event.shiftKey) {
     changeVideoRate(FASTER);
   }
 
   // Клавиши SHIFT+. (англ) — замедление воспроизведения ролика
-  if (event.code === 'Period' && event.shiftKey) {
+  if (!isFormActive && event.code === 'Period' && event.shiftKey) {
     changeVideoRate(SLOWER);
   }
 
+  if (isFormActive && event.code === 'Enter') {
+    formSubmitHandler(event);
+  }
 });

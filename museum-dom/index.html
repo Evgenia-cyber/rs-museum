@@ -381,21 +381,25 @@
                 <h2>Booking tickets</h2>
                 <h4>Tour to Louvre</h4>
                 <div class="popup-data-inputs">
+                  <input class="input-date" type="date" placeholder="Date" />
                   <input
-                    class="date"
-                    type="date"
-                    onchange="this.classList.toggle('has-value', this.value)"
-                    placeholder="Date"
-                  />
-                  <input
-                    class="time"
+                    class="input-time"
                     type="time"
-                    onchange="this.classList.toggle('has-value', this.value)"
                     placeholder="Time"
+                    min="09:00"
+                    max="18:00"
+                    step="1800"
                   />
-                  <input class="name" placeholder="Name" />
-                  <input class="email" placeholder="E-mail" type="email" />
-                  <input placeholder="Phone" type="tel" />
+                  <input class="input-name" type="text" placeholder="Name" />
+                  <p class="error"></p>
+                  <input
+                    class="input-email"
+                    type="email"
+                    placeholder="E-mail"
+                  />
+                  <p class="error"></p>
+                  <input class="input-tel" type="tel" placeholder="Phone" />
+                  <p class="error"></p>
                 </div>
                 <div class="select-wrapper">
                   <label for="ticket-type"
@@ -493,7 +497,8 @@
                 <h4 class="subtitle-roboto tickets-subtitle-total">
                   Total <span class="total-price">0</span> €
                 </h4>
-                <button class="buy-btn">Book</button>
+                <input id="submit" type="submit" class="buy-btn" value="Book" />
+                <!-- <button id="submit" type="submit" class="buy-btn">Book</button> -->
               </div>
             </form>
           </div>
@@ -609,7 +614,7 @@
     <!--footer-->
     <footer class="dark-bg">
       <div class="container footer-container">
-        <a class="logo" href="#header">Louvre</a>
+        <h2><a class="logo" href="#header">Louvre</a></h2>
         <nav class="nav">
           <ul class="menu footer-menu">
             <li class="menu-item">
@@ -681,10 +686,11 @@
     <script src="js/slider.js"></script>
     <script src="js/welcomeSlider.js"></script>
     <script src="js/videoSlider.js"></script>
+    <script src="js/ticketForm.js"></script>
+    <script src="js/formValidation.js"></script>
     <script src="js/keyboardControl.js"></script>
     <script src="js/scrollToTop.js"></script>
     <script src="js/compareImagesSlider.js"></script>
-    <script src="js/ticket-form.js"></script>
     <script src="js/ticketSalesCalculator.js"></script>
     <!-- <script src="js/map.js"></script> -->
     <!-- <script src="js/task.js"></script> -->

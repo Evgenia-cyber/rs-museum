@@ -850,8 +850,8 @@ button {
   max-width: 1200px;
   padding-top: 0;
   padding-bottom: 0;
-  margin-top: 110px;
-  margin-bottom: 110px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .popup {
@@ -889,7 +889,8 @@ button {
   flex-direction: column;
 }
 
-.popup-data-inputs input {
+.input-date,
+.input-time {
   margin-bottom: 20px;
 }
 
@@ -924,6 +925,21 @@ div.info-ticket-type {
 .info-ticket-type {
   background: url('assets/svg/ticket-type.svg') no-repeat;
 }
+
+.error {
+  color: red;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+/* input:invalid {
+  border: 1px solid red;
+} */
+
+/*input:valid {
+  border: 1px solid green;
+} */
 
 /* *** tickets section *** */
 .tickets-wrapper,
