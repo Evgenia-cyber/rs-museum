@@ -65,7 +65,7 @@ const closePopupWhenPopupOverlayClicked = (event) => {
 
 const formSubmitHandler = (event) => {
   console.log('form');
-  // event.preventDefault();
+  event.preventDefault();
 
   return false;
 };
