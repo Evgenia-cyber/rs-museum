@@ -147,7 +147,14 @@ const customTelValidate = () => {
   }
 
   //   const countOfDigits = parseInt(value.replace(/\D+/g, '')).toString().length;
-  const countOfDigits = value.match(/\d/g).length;
+  const countOfDigitsMatch = value.match(/\d/g);
+
+  if (!countOfDigitsMatch) {
+    addError(telInput, 'Enter your phone!');
+    return;
+  }
+
+  const countOfDigits = countOfDigitsMatch.length;
 
   if (
     // Номер телефона должен содержать не больше 10 цифр.
@@ -193,7 +200,7 @@ const customTelValidate = () => {
   ) {
     addError(
       telInput,
-      'The numbers can be without division or with division into two or three digits.',
+      'The phone must start with a digit. The numbers can be without division or with division into two or three digits.',
     );
     return;
   }
@@ -204,8 +211,10 @@ const customTelValidate = () => {
 /* ******************* */
 const preventEvent = (event) => {
   if (event.code === 'Enter') {
+    popup.style.transform = 'translateX(0)';
     console.log(123);
     formSubmitHandler(event);
+    return false;
   }
 };
 
