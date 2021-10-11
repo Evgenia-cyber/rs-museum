@@ -382,14 +382,17 @@
                 <h4>Tour to Louvre</h4>
                 <div class="popup-data-inputs">
                   <input class="input-date" type="date" placeholder="Date" />
-                  <input
+                  <select id="time">
+                    <option value="0" selected>--:--</option>
+                  </select>
+                  <!-- <input
                     class="input-time"
                     type="time"
                     placeholder="Time"
                     min="09:00"
                     max="18:00"
                     step="1800"
-                  />
+                  /> -->
                   <input class="input-name" type="text" placeholder="Name" />
                   <p class="error"></p>
                   <input
@@ -461,7 +464,7 @@
                 <h2>Overview</h2>
                 <h4>Tour to Louvre</h4>
                 <div class="info-date">Friday, August 19</div>
-                <div class="info-time">16 : 30</div>
+                <div class="info-time">--:--</div>
                 <div class="info-ticket-type">Temporary exhibition</div>
 
                 <div class="tickets-count-wrapp">
