@@ -1,5 +1,5 @@
 const popup = document.querySelector('.popup-overlay');
-const form = document.querySelector('.popup');
+// const form = document.querySelector('.popup');
 const closePopupBtn = document.querySelector('.close-popup-btn');
 const buyBtn = document.querySelector('#buy-btn');
 const dateInput = document.querySelector('input[type="date"]');
@@ -64,18 +64,18 @@ const closePopupWhenPopupOverlayClicked = (event) => {
 };
 
 const formSubmitHandler = (event) => {
-  console.log('form');
+  console.log('form submit handler');
   event.preventDefault();
 
   return false;
 };
 
-const formSubmitHandler1 = (event) => {
-  console.log('form submit');
-  event.preventDefault();
+// const formSubmitHandler1 = (event) => {
+//   console.log('form submit');
+//   event.preventDefault();
 
-  return false;
-};
+//   return false;
+// };
 
 /* ******************** */
 buyBtn.addEventListener('click', openPopup);
@@ -88,6 +88,6 @@ dateInput.addEventListener('change', setFormattedDate);
 
 timeInput.addEventListener('change', setTime);
 
-form.addEventListener('submit', formSubmitHandler1);
+// form.addEventListener('submit', formSubmitHandler1);
 
 submitBtn.addEventListener('click', formSubmitHandler);

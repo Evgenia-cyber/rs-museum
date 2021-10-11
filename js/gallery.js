@@ -2,8 +2,6 @@ const gallery = document.querySelector('.gallery-inner-container');
 
 const sources = [];
 
-const NUMBER_OF_IMAGES = 15;
-
 for (let i = 1; i <= NUMBER_OF_IMAGES; i++) {
   sources.push(i);
 }

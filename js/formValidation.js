@@ -212,7 +212,6 @@ const customTelValidate = () => {
 const preventEvent = (event) => {
   if (event.code === 'Enter') {
     popup.style.transform = 'translateX(0)';
-    console.log(123);
     formSubmitHandler(event);
     return false;
   }

@@ -22,3 +22,5 @@ const TICKET_TYPES = [
 
 const BASIC_TICKETS_PRICE = [20, 25, 40];
 const SENIOR_TICKETS_PRICE = [10, 12.5, 20];
+
+const NUMBER_OF_IMAGES = 15;
