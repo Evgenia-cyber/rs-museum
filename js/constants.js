@@ -27,3 +27,6 @@ const NUMBER_OF_IMAGES = 15;
 
 const MIN_OPENING_HOURS = 9;
 const NUMBER_OF_VALID_TIMESELECT_OPTIONS = 18;
+
+const TOKEN =
+  'pk.eyJ1IjoiZXZnZW5pYS1rdXJpbmV2YSIsImEiOiJja3VoOTRvM3kyYnV6MzFtbzhobXF2bTNiIn0.hvi_FcwB8eE9lc5IQspdxg';
