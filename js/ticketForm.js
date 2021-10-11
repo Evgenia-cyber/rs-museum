@@ -8,6 +8,7 @@ const timeSelect = document.querySelector('#time');
 // const timeInput = document.querySelector('input[type="time"]');
 const infoTimeDiv = document.querySelector('.info-time');
 const submitBtn = document.querySelector('#submit');
+const allInputsWhichHasValidate = document.querySelectorAll('.has-validate');
 
 const now = new Date();
 
@@ -45,7 +46,7 @@ const getTimeString = (hours, minutes) => {
 
 const setTime = () => {
   // const newTime = timeInput.value;
-  const newTime = timeSelect.options[ timeSelect.selectedIndex].textContent;
+  const newTime = timeSelect.options[timeSelect.selectedIndex].textContent;
   infoTimeDiv.textContent = newTime;
 };
 
@@ -92,6 +93,11 @@ const closePopupWhenPopupOverlayClicked = (event) => {
 const formSubmitHandler = (event) => {
   console.log('form submit handler');
   event.preventDefault();
+
+  allInputsWhichHasValidate.forEach((input) => {
+    input.focus();
+    input.blur();
+  });
 
   return false;
 };
