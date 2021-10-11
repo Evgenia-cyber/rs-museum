@@ -32,7 +32,7 @@ const createAndAddNewImgElement = (number) => {
 };
 
 const fillGallery = (array) => {
-  shuffleArray(array);
+  // shuffleArray(array);
   array.map((item) => createAndAddNewImgElement(item));
 };
 

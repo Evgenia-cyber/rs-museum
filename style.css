@@ -806,6 +806,14 @@ button {
   display: block;
   width: 100%;
   margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(50%) scale(0.7);
+}
+
+.gallery-img.active {
+  opacity: 1;
+  transform: translateY(0%) scale(1);
+  transition: opacity 0.6s ease-out, transform 0.8s;
 }
 
 .gallery-inner-container img:nth-child(6),
